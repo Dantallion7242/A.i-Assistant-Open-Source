@@ -1476,7 +1476,7 @@ def main(command):
 
                 # Add your API key to the request header
                 headers = {
-                    "Ocp-Apim-Subscription-Key": "51875ab2cb284085b5416e74ebcc5020"
+                    "Ocp-Apim-Subscription-Key": ""
                 }
 
                 # Make the API request
@@ -1628,7 +1628,7 @@ def main(command):
                         
                         
             if query[0] == 'geocode':
-                geocoder = opencage.geocoder.OpenCageGeocode("2328b5957aca4be69dcfb3c423eac0a9")
+                geocoder = opencage.geocoder.OpenCageGeocode("")
 
                 # Geocode an address
                 address = input("Enter the address: ")
@@ -1640,7 +1640,7 @@ def main(command):
                 print(f"Latitude: {lat}, Longitude: {lng}")
 
                 # Make a request to the OpenCage Geocoding API using the obtained coordinates
-                url = f"https://api.opencagedata.com/geocode/v1/json?q={lat}%2C{lng}&key=7bfaddaf215e4a0b835b8f6ba82be65a&pretty=1"
+                url = f"https://api.opencagedata.com/geocode/v1/json?q={lat}%2C{lng}&key"
                 response = requests.get(url).json()
                 print(json.dumps(response, indent=2))
 
@@ -1661,7 +1661,7 @@ def main(command):
             if query[0] == 'museum' :
                 speak('What do you want to know about?')
                 # Replace <YOUR_API_KEY> with your Europeana API key
-                api_key = "ggracila"
+                api_key = ""
 
                 # Set the API endpoint and parameters
                 endpoint = "https://www.europeana.eu/api/v2/search.json"
@@ -2461,7 +2461,7 @@ def main(command):
                     query = input()
                     api_key = ''
                     endpoint = f'https://financialmodelingprep.com/api/v3/quote/{query}?apikey={api_key}'
-                    headers = {'06bb0f8f8cfe93015116144b8ee0c857': api_key}
+                    headers = {'': api_key}
                     
                     response = requests.get(endpoint)
                     
@@ -2485,7 +2485,7 @@ def main(command):
                     speak('do you like more infos or a fundamental analyses on?' )
                     Answer = input()
                     if Answer == 'yes':
-                       endpoint =f'https://financialmodelingprep.com/api/v3/rating/{query}?apikey=06bb0f8f8cfe93015116144b8ee0c857'
+                       endpoint =f'https://financialmodelingprep.com/api/v3/rating/{query}?apikey='
                        headers = {'': api_key}
                        response = requests.get(endpoint)
                        soup = BeautifulSoup(html, 'html.parser')
@@ -2509,7 +2509,7 @@ def main(command):
                             stock = '{query}'
 
                             api_key = ''
-                            url = f'https://financialmodelingprep.com/api/v4/stock_peers?symbol={stock}&apikey=06bb0f8f8cfe93015116144b8ee0c857'
+                            url = f'https://financialmodelingprep.com/api/v4/stock_peers?symbol={stock}&apikey='
 
                         #1 GET LIST OF PEERS
                             peers = requests.get(url).json()
