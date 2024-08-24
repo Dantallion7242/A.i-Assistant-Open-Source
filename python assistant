@@ -1,0 +1,3074 @@
+import sys
+print(sys.executable)
+
+from datetime import datetime
+import speech_recognition as sr
+import pyttsx3
+import webbrowser
+import wikipedia
+import wolframalpha 
+import platform 
+import numpy as np
+import matplotlib.pyplot as plt
+import numpy as np
+import requests as reqs 
+from sklearn import datasets
+from sklearn.neighbors import KNeighborsClassifier
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_blobs
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import LabelEncoder
+from scipy.stats import ttest_ind
+import nltk
+nltk.download('names')
+nltk.download('averaged_perceptron_tagger')
+import tokenize
+nltk.download('shakespeare')
+from nltk import pos_tag, word_tokenize
+from nltk.sentiment.util import demo_sent_subjectivity
+from sklearn.naive_bayes import (
+    BernoulliNB,
+    ComplementNB,
+    MultinomialNB,
+)
+import requests
+import networkx as nx
+import matplotlib.pyplot as plt
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+from nltk.tokenize import PunktSentenceTokenizer
+import requests
+import os
+import time
+import os
+import openai
+import sys
+import sklearn
+import sklearn.svm
+import sklearn.feature_extraction
+from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import MultinomialNB
+from openai.api_resources.completion import Completion
+from openai.api_resources.abstract.engine_api_resource import EngineAPIResource
+import requests
+from bs4 import BeautifulSoup
+import csv
+import json 
+import gettext
+from urllib.request import urlopen
+import certifi
+import json
+
+import turtle
+import urllib.request
+import time
+import webbrowser
+import geocoder
+import seaborn
+import librosa
+import sounddevice as sd
+import numpy as np
+import librosa, librosa.display
+import matplotlib.pyplot as plt
+import ctypes
+import IPython.display as ipyd
+from pydub import AudioSegment
+import scipy.io.wavfile
+import librosa.display
+from nltk.chat.util import Chat, reflections
+import pandas as pd
+import sphinx
+import pocketsphinx
+from transformers import pipeline 
+from transformers import AutoTokenizer ,AutoModelForSequenceClassification ,BertTokenizer ,BertModel
+from transformers import AutoModel
+from transformers import DistilBertTokenizer, DistilBertModel
+import torch
+from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
+from transformers import DistilBertTokenizer, DistilBertForMultipleChoice
+from transformers import MarianMTModel, MarianTokenizer
+from transformers import DistilBertConfig, DistilBertModel
+from transformers import Speech2Text2Config, Speech2Text2ForCausalLM
+from transformers import T5Tokenizer, T5Model
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import finnhub
+import torch
+from transformers import pipeline
+import scipy.stats as stats
+from sklearn.linear_model import LinearRegression
+import statsmodels.tsa.stattools as sts
+import argparse 
+from gdeltdoc import GdeltDoc, Filters
+import datetime
+from sklearn.feature_extraction.text import CountVectorizer
+import speech_recognition as sr
+from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.corpus import stopwords
+from nltk.probability import FreqDist
+from heapq import nlargest
+import tkinter as tk
+from tkinter import filedialog
+import http.client
+import spacy
+import en_core_web_sm
+from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import OneHotEncoder
+from statsmodels.tsa.stattools import grangercausalitytests
+import statsmodels.api as sm
+import networkx as nx
+import csv
+from fuzzywuzzy import fuzz  
+import nltk
+from nltk.chat.util import Chat, reflections
+import re
+import pyjokes
+import opencage.geocoder
+from dpla.api import DPLA
+from pythonbible import bible
+import random
+import functools
+from datetime import datetime 
+import keyboard
+import tkinter as tk
+from tkinter import filedialog
+import argparse
+from googlesearch import search
+from itertools import permutations
+from language_tool_python import LanguageTool
+from flask import Flask, request, jsonify
+import docx
+openai.api_key = ('')
+openai.api_key_path = "<C:\dep\A.i Leo\openai.api_key_path.env>"
+
+
+headers = {
+    "Authorization": f"Bearer {''}",
+    "Content-Type": "application/python",
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Speech engine initialisation
+engine = pyttsx3.init() # ttx to speech  enginge 
+voices = engine.getProperty('voices')  #voices available 
+engine.setProperty('voice', voices[1].id) # 0 = male, 1 = female
+activationWord =  'compute' # Single word
+words = [w for w in nltk.corpus.state_union.words() if w.isalpha()]
+        
+    
+
+
+
+# Configure browser
+#webbrowser can be changed depeding of your auth and definions 
+# Set the path
+chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+# Register the browser
+webbrowser.register('chrome', None, 
+                    webbrowser.BackgroundBrowser(chrome_path))
+#utilisitaion sur wolfram Alpha Client that wil give you power to calculate heavy querys to knowledge or math 
+# Wolfram Alpha client
+appId = 'QAU757-T53LGA3TY3'
+wolframClient = wolframalpha.Client(appId)
+
+
+# function of speaking and rate 
+def speak(text, rate = 120):
+    engine.setProperty('rate', rate) 
+    engine.say(text)
+    engine.runAndWait()
+
+# function of confirming command to asure that it understand the voice command 
+def confirm_command(prediction, confidence,chatbot_response):
+            if confidence < 0.9:
+                user_confirmation = input(prediction + "(yes/no)")
+                print(user_confirmation)
+                
+                
+            if user_confirmation == "yes":
+                  return confirm_command 
+            if user_confirmation == "no":
+                  return get_input()
+
+#get input from user in prompt based command -               
+def get_input(command_dict,command):
+            print('Enter a command: ')
+            
+            # Use the command provided instead of asking for input
+            text_input = command  # This is now using the command passed as an argument
+            query = text_input
+            
+            print(f"Command received: {text_input}")
+
+            # Check if text_input is valid
+            if text_input is not None:
+                # Assuming the command dictionary contains potential commands
+                if text_input in command_dict:
+                    response = command_dict[text_input]  # Get the corresponding response
+                    print(f"Pattern matched: {query} -> {response}")
+                    return response  # Return the response for the matched command
+                else:
+                    print(f"Command '{text_input}' not recognized.")
+                    return "Command not recognized."
+            else:
+                print("No command provided.")
+                return "No command provided."
+def process_sentiment_analysis(prediction):
+   # Extract and sort sentiment scores in descending order
+    sorted_results = sorted(prediction[0], key=lambda x: x['score'], reverse=True)
+    
+    # Get the top two sentiments
+    top_two = sorted_results[:2]
+    
+    print("Top 2 Sentiments:")
+    for sentiment in top_two:
+        label = sentiment['label'].capitalize()
+        score = sentiment['score']
+        print(f"{label}: {score:.4f}")
+# test the input based in the input data 
+def test_input(input_data):
+    if isinstance(input_data, str):
+        # perform some operation on the string input
+        print("String input detected: ", input_data)
+    elif isinstance(input_data, list):
+        # perform some operation on the list of elements
+        print("List input detected: ", input_data)
+    else:
+        # handle unsupported input type
+        print("Unsupported input type")
+        
+#main funtion to parse commands , the core of the listerner recog and processing the commands with list and exceptions 
+def parseCommand():
+    listener = sr.Recognizer()
+    listener2 = sr.Recognizer()
+    print('Say something to me ')
+    query = listener.recognize_tensorflow #reco assign the recognize_tensorflow method of the listener recognizer to the variable query
+    query2 = listener2.recognize_google #google same thing for best confirmation 
+    
+    
+       
+    
+    
+    with sr.Microphone() as source:
+        listener.adjust_for_ambient_noise(source)# adjustment with the engine 
+        listener.pause_threshold = 4 #sensibility 
+        input_speech = listener.listen(source) # 
+        listener.adjust_for_ambient_noise(source, duration=1) # duration time manament for speaking 
+        listener.pause_threshold = 1 # set pause threshold to 1 second depedingg in the case 
+
+    try:
+        print('Recognizing ...') #print a debug that will let the person aware of the function query
+        query = listener.recognize_google(input_speech, language='en_US')# language model you have many more but models may be hard to have good comprehension 
+        query1 = listener2.recognize_sphinx(input_speech) #other example 
+        
+        
+        classifier = pipeline("text-classification",model='bhadresh-savani/distilbert-base-uncased-emotion', top_k=None) # classifier for the text
+        prediction = classifier("{query}", ) 
+         # Print sentiment analysis results
+        print("Sentiment Analysis Results:")
+        
+
+        """
+        Output:
+        [[
+        {'label': 'sadness', 'score': 0.0006792712374590337}, 
+        {'label': 'joy', 'score': 0.9959300756454468}, 
+        {'label': 'love', 'score': 0.0009452480007894337}, 
+        {'label': 'anger', 'score': 0.0018055217806249857}, 
+        {'label': 'fear', 'score': 0.00041110432357527316}, 
+        {'label': 'surprise', 'score': 0.0002288572577526793}
+        ]]
+        """
+       
+       
+        print(f"Recognized speech: {query}")
+        
+        process_sentiment_analysis(prediction)
+       
+    
+        #list of commands based on a dictionary 
+       
+        command_dict = {
+            "stock" : "compute stocks",
+            "stocks": "compute stocks",
+            "asteroids": "compute asteroid",
+            "lua": "compute asteroid",
+            "choose": "compute choose",
+            "music": "compute music",
+            "trade": "compute trade",
+            "crypto": "compute crypto",
+            "note music": "compute record",
+            "learn": "compute learn",
+            "eonet": "compute eonet",
+            "memo": "compute memo",
+            "what's up": "greet",
+            "quit": "exit",
+            "bye": "exit",
+            "quit": "exit",
+            "bye": "exit",
+            "goodbye": "exit",
+            "weather": "compute weather",
+            "news": "compute news",
+            "search": "compute search",
+            "calculate": "compute calculation",
+            "data": "compute data visualization",
+            "timer": "compute timer",
+            "time": "compute time",
+            "date": "compute date",
+            "sports": "compute sports",
+            "movies": "compute movies",
+            "book": "compute book",
+            "flight": "compute flight",
+            "travel": "compute travel",
+            "restaurant": "compute restaurant",
+            "analyze personality" :"compute personality analysis",
+            "traits": "compute personality traits",
+            "interpret dream": "compute dream interpretation",
+            "body language": "compute body language analysis",
+            "detect lie": "compute lie detection",
+            "social skills": "compute social skills analysis",
+            "emotional intelligence": "compute emotional intelligence analysis",
+            "self-esteem": "compute self-esteem analysis",
+            "stress level": "compute stress level analysis",
+            "mental health": "compute mental health analysis",
+            "confidence": "compute confidence analysis",
+            "personality test": "compute personality test",
+            "phobias": "compute phobia analysis",
+            "mood": "compute mood analysis",
+            "happiness": "compute happiness analysis",
+            "behavior patterns": "compute behavior patterns analysis",
+            "problem solving": "compute problem solving analysis",
+            "communication skills": "compute communication skills analysis",
+            "team dynamics": "compute team dynamics analysis",
+            "positive thinking": "compute positive thinking analysis",
+            "historical events": "compute historical events",
+            "timeline": "compute historical timeline",
+            "key figures": "compute key historical figures",
+            "monuments": "compute historical monuments",
+            "battles": "compute historical battles",
+            "wars": "compute historical wars",
+            "civilizations": "compute historical civilizations",
+            "revolutions": "compute historical revolutions",
+            "declarations": "compute historical declarations",
+            "inventions": "compute historical inventions",
+            "discoveries": "compute historical discoveries",
+            "pandemics": "compute historical pandemics",
+            "art movements": "compute historical art movements",
+            "music styles": "compute historical music styles",
+            "economic events": "compute historical economic events",
+            "political events": "compute historical political events",
+            "scientific advancements": "compute historical scientific advancements",
+            "cultural shifts": "compute historical cultural shifts",
+            "summarize data": "compute data summary",
+            "visualize data": "compute visualization",
+            "find outliers": "compute outlier detection",
+            "correlate variables": "compute variable correlation",
+            "predict outcome": "compute outcome prediction",
+            "identify patterns": "compute pattern recognition",
+            "compare groups": "compute group comparison",
+            "run regression": "compute regression analysis",
+            "determine causality": "compute causality analysis",
+            "perform hypothesis test": "compute hypothesis testing",
+            "calculate descriptive statistics": "compute descriptive statistics",
+            "forecast trends": "compute trend forecasting",
+            "cluster data": "compute data clustering",
+            "run a time series analysis": "compute time series analysis",
+            "perform sentiment analysis": "compute sentiment analysis",
+            "create a heatmap": "compute heatmap",
+            "generate a word cloud": "compute word cloud",
+            "asteroid" : "asteroids",
+            "New york" : "New York",
+            "compute news": query_command,
+            "talk": chatbot_response
+            
+
+        }
+        
+        predict = command_dict.get(query.lower())
+        #basee sur  la confiance 
+        
+        prediction = query
+        confidence = 0.75
+        if confirm_command(prediction, confidence,chatbot_response):
+    # execute the command
+            predict = command_dict.get(query.lower())
+            print("Command executed: " + prediction )
+           
+            return prediction
+        
+      
+      
+      
+      
+      
+      
+        else:
+            print("chating is easier")   
+            return predict
+        
+    
+       
+        
+                     
+    
+
+    except Exception as exception:
+            print('I did not catch that')
+            speak('say again')
+            print(exception)
+
+            return parseCommand()
+
+    
+
+def generate_expert_response(user_input, expert_vocabulary, parseCommand):
+    # Tokenize the user input
+    tokens = word_tokenize(user_input)
+ 
+    # Tag the tokens with their part-of-speech
+    tagged_tokens = pos_tag(tokens)
+
+    # Check if the user input contains any expert-level vocabulary
+    contains_expert_vocabulary = any(
+        token.lower() in expert_vocabulary for token, pos in tagged_tokens 
+        if pos.startswith('N') or pos.startswith('V')
+    )
+
+    if contains_expert_vocabulary:
+        # Generate an expert-level response
+        response = "I appreciate your input. Can you provide more details or examples to further discuss the topic?"
+    else:
+        # If no expert-level vocabulary is found, provide a generic response
+        response = "I see. Can you tell me more about that?"
+    
+    return response
+nlp = spacy.load("en_core_web_lg")
+def get_google_search_results(query): #change api and auth  #this is the google api for results of pages and querys on chat 
+    cx = "57ae51073adbb4319"
+    api_key = ""
+    url = f"https://www.googleapis.com/customsearch/v1?q={query}&key={api_key}&cx={cx}"
+    response = requests.get(url)
+    search_results = response.json()
+    return search_results
+
+def gather_first_three_google_results(query): # this funtion is to gather the 3 google searchs and use as information data to explain a question 
+    try:
+        search_results = get_google_search_results(query)
+        if 'items' in search_results:
+            snippets = []
+            for item in search_results['items'][:6]:
+                if 'snippet' in item:
+                    snippet = item['snippet']
+                    # Remove any date patterns from the snippet
+                    snippet = re.sub(r'\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{1,2},\s+\d{4}\b', '', snippet)
+                    snippets.append(snippet)
+            if snippets:
+                # Analyze snippets and select the most adequate words
+                adequate_words = select_adequate_words(snippets, query)
+                
+                # Construct the sentence from the selected words
+                constructed_sentence = " ".join(adequate_words)
+                
+                # Correct the constructed sentence
+                corrected_sentence = correct_sentence(constructed_sentence)
+                
+                # Generate query variations for the corrected sentence
+                query_variants = generate_query_variations(corrected_sentence)
+                
+                # Reorder the query variants to enhance coherence
+                reordered_variants = [reorder_words(variant) for variant in query_variants]
+                
+                # Select the best coherent variant based on coherence score
+                best_variant = select_best_coherent_variant(reordered_variants)
+                
+                return best_variant
+                
+                
+                
+                
+    except Exception as e:
+        return f"An error occurred: {e}"
+def google_results(query):
+    try:
+        search_results = get_google_search_results(query)
+        
+        if 'items' in search_results:
+            for item in search_results['items'][:3]:  # Check the first 3 items
+                if 'title' in item:
+                    header = item['title']
+                    # Check if the header contains information about the capital
+                    if "capital" in header.lower():
+                        # Extract the capital from the header (assuming it follows "capital of")
+                        capital = header.split("capital of")[-1].strip()
+                        print(capital)
+                        return capital
+            
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    
+    return None
+def select_best_coherent_variant(variants):  # Define a function to select the best coherent variant from a list
+     # Calculate coherence scores for each variant using the calculate_coherence_score function
+    coherence_scores = [calculate_coherence_score(variant) for variant in variants]
+    best_variant_index = coherence_scores.index(max(coherence_scores))# Return the variant that corresponds to the highest coherence score
+    return variants[best_variant_index]   
+def select_adequate_words(snippets, query): #help enhance the vocabulary if need 
+    # Combine all snippets into a single text
+    combined_text = " ".join(snippets)
+    
+    # Process the combined text with spaCy
+    doc = nlp(combined_text)
+    
+    # Tokenize the query
+    query_tokens = nlp(query.lower())
+    
+    # Initialize a dictionary to store word relevance scores
+    word_scores = {}
+    
+    # Calculate relevance scores for each word
+    for token in doc:
+        if token.is_alpha and not token.is_stop:
+            relevance_score = sum([token.similarity(word) for word in query_tokens])
+            word_scores[token.text.lower()] = relevance_score
+    
+    # Sort words by relevance score in descending order
+    sorted_words = sorted(word_scores.items(), key=lambda x: x[1], reverse=True)
+    
+    # Select the most relevant words (up to 25 words)
+    selected_words = []
+    for word, _ in sorted_words:
+        if len(selected_words) >= 25:  # Limit to 25 words
+            break
+        if word not in query.lower() and word not in selected_words:
+            selected_words.append(word)
+    
+    return selected_words
+tool = LanguageTool('en-US')
+def correct_sentence(sentence):  # for the chat bot disc
+    # Check for corrections
+    matches = tool.check(sentence)
+    
+    # Apply corrections
+    corrected_sentence = tool.correct(sentence)
+    
+    return corrected_sentence
+def construct_sentence(words):
+    # Capitalize the first word
+    words[0] = words[0].capitalize()
+    
+    # Add a period at the end
+    words[-1] += "."
+    
+    # Join the words into a sentence
+    sentence = " ".join(words)
+    
+    # Ensure that the sentence starts with a capital letter and ends with a period
+    sentence = sentence.capitalize()
+    if not sentence.endswith('.'):
+        sentence += '.'
+    
+    # Reorder the words to create a more coherent sentence
+    sentence = reorder_words(sentence)
+    
+    return sentence
+def reorder_words(sentence):
+    # Tokenize the sentence into words
+    words = sentence.split()
+    
+    # Define grammar rules for reordering
+    grammar_rules = [
+        (["because", "since", "as"], ["therefore", "so", "thus"]),
+        (["and", "but"], ["however", "nevertheless", "yet"]),
+        (["also", "furthermore", "moreover"], ["in addition", "additionally", "besides"])
+    ]
+    
+    # Apply grammar rules to reorder words
+    for rule in grammar_rules:
+        for conjunction in rule[0]:
+            if conjunction in words:
+                idx = words.index(conjunction)
+                alternative = random.choice(rule[1])
+                words[idx] = alternative
+    
+    # Reassemble the sentence
+    reordered_sentence = " ".join(words)
+    
+    return reordered_sentence  
+
+query_variations = {
+    "sample": ["example", "instance", "specimen"],
+    "text": ["passage", "script", "content"],
+    "information": ["data", "details", "facts"],
+    "relevant": ["pertinent", "applicable", "related"],
+    "difference": ["distinction", "contrast", "disparity"],
+    "love": ["affection", "passion", "devotion"],
+    "hate": ["animosity", "dislike", "hostility"]
+} 
+def generate_query_variations(query):
+    # Generate all possible combinations of synonyms for each word in the query
+    words = query.split()
+    variations = [query]  # Add the original query as well
+    for i, word in enumerate(words):
+        if word in query_variations:
+            for synonym in query_variations[word]:
+                variation = " ".join(words[:i] + [synonym] + words[i+1:])
+                variations.append(variation)
+    return variations
+def calculate_coherence_score(query):
+    # Calculate coherence score using a coherence checker (you can use LanguageTool or other similar tools)
+    # Here, we'll just return a random coherence score as a placeholder
+    return random.uniform(0, 1)
+def jokes (query ):
+    if query.lower() == "can you tell me a joke?":
+        joke = pyjokes.get_joke()
+        return joke
+    else:
+        return "I'm sorry, I didn't understand that."
+def chatbot_response(user_input, parseCommand, get_input):
+    patterns = [
+        (r'hi|hello|hey', ['you can talk to me, ask some questions, or make an order, master']),
+        (r'who made you|who created you?', ['I was created by Leopold FaCCi']),
+        (r'are you ok|how are you\?|are you ok', ['I am good, thank you.', 'I am doing well.']),
+        (r'what is your name?|name|whats|whats your name', ['My name is Helena.']),
+        (r'what can you do|what are your abilities|what is your purpose?', ['I can answer your questions about Earth, Space, News, Datas, and Music.']),
+        (r'what is the weather like in (.*)', ['compute tell weather']),
+        (r'what is the meaning of life?', ['im thinking , what is the meaning of life?']),
+        (r'how old are you?', ['I am an AI assistant, I do not have an age.']),
+        (r'are you a robot|are you human?', ['I am an AI assistant.']),
+        (r'can you tell me about yourself?', ['I am Helena, an AI assistant designed to help you with your questions.']),
+        (r'what do you like to do in your free time?', ['As an AI assistant, I do not have free time.']),
+        (r'what is your favorite movie?', ['As an AI assistant, I do not have a favorite movie.']),
+        (r'which is your favorite book?', ['harry potter']),
+        (r'what is the difference between love and hate?', ['thinking, ']),
+        (r'what is the meaning of [life|love|happiness|success]?', ['thinking']),
+        (r'what is your opinion on [politics|religion|current events]?', ['thinking']),
+        (r'what is love?', ['harry potter']),
+        (r'can you help me with my [math|science|history|English] homework?', ['Sure, let me see how I can assist you.(you can ask me in the compute math) ']),
+        (r'can you tell me a story?', ['search_story']),
+        (r'what is the capital of [country]?', ['thinking2']),
+        (r'can you recommend a good restaurant|book|movie|TV show?', ['thinking2']),
+        (r'what is the population of [city|country]?', ['thinking']),
+        (r'what is the current time in [city]?', ['thinking']),
+        (r'how can you help me?|what can you do for me?', ['I can help you with your questions or provide information on various topics. Just ask me anything!']),
+        (r'where are you from?|where were you created?', ['I am a digital assistant and do not have a physical location. I was created by my developers.']),
+        (r'can you tell me a joke?', [jokes]),
+        (r'what is your favorite sport?', ['As an AI assistant, I do not have a favorite sport.']),
+        (r'what is your favorite hobby?', ['As an AI assistant, I do not have a favorite hobby.']),
+        (r'what is the meaning of success', ['thinking']),
+        (r'can you recommend a [podcast|YouTube channel|website]?', ['thinking a bit']),
+        (r'what is the [highest|lowest] point on Earth?', ['thinking']),
+        (r'can you [translate|define] a word for me?', ['thinking']),
+        (r'what is the [largest|smallest] country in the world?', ['thinking a bit']),
+        (r'what is the [fastest|slowest] animal in the world?', ['thinking.']),
+        (r'what is your favorite [book|author]?', ['harry potter']),
+        (r'can you help me [plan|organize] my day?', ['thinking']),
+        (r'what is the [capital|currency] of [country]?', ['thinking a bit']),
+        (r'what is the distance between [city1] and [city2]?', ['thinking'])
+]
+    
+
+    greetings = ["hi", "hello", "hey"]
+    greetings2 = ["what is the question for today?", "What can I do for you today"]
+
+    user_input = input("{}, {} ".format(random.choice(greetings), random.choice(greetings2))).strip().lower()
+
+    # Loop through patterns to find a match
+    # Loop through patterns to find a match
+    for pattern, response_list in patterns:
+        match = re.search(pattern, user_input, re.IGNORECASE)
+        if match:
+            # Perform actions based on response list
+            for response in response_list:
+                # Check if the response list indicates a specific action
+                if response == 'harry potter':
+                    # Extract the query from the user input
+                    query = user_input  # You may adjust this as needed
+                    # Perform the action with the extracted query
+                    print(query)
+                    # Assuming search_wolframalpha is defined elsewhere
+                    answer = search_wolframalpha(query)  
+                    print(answer)
+                elif 'thinking' in response.lower():
+                    # Perform the action for thinking response
+                    print("I'm thinking...")
+                    query = user_input  # You may adjust this as needed
+                    print(query)
+                    # Assuming search_wolframalpha is defined elsewhere
+                    constructed_sentence = gather_first_three_google_results(query)  
+                    corrected_sentence = correct_sentence(constructed_sentence)
+                    print(corrected_sentence)
+                    speak(corrected_sentence)
+                elif 'thinking a bit' in response.lower():
+                    # Perform the action for thinking response
+                    print("I'm thinking...")
+                    query = user_input  # You may adjust this as needed
+                    print(query)
+                    # Assuming search_wolframalpha is defined elsewhere
+                    constructed_sentence = google_results(query)  
+                    
+                    print(constructed_sentence)
+                    speak(constructed_sentence)
+                elif response == 'search_story':
+    # Extract the query from the user input (if needed)
+                    print('about what ?')
+                    query2 = input()
+                      # Use a default query for a story, or modify to accept user input
+
+                    try:
+                        # Perform the action: search for a story online
+                        story = search_history(query2)
+
+                        # Check if a story was returned
+                        if story:
+                            # Print and speak the story
+                            print(story)
+                            speak(story)
+                        else:
+                            print("No story found.")
+
+                    except Exception as e:
+                        print(f"An error occurred while fetching the story: {e}")
+                else:
+                    print(response)
+                                
+                                    
+                                
+                            # Exit loop after first match
+                
+                                
+
+def search_history(query, mode="Creative", word_count=1200, story_genre="Mystery"):
+    # Set your OpenAI API key
+    openai.api_key = ""  # Replace with your API key
+
+    # Create the prompt for the story
+    prompt = (f"Story Topic: {query}\n\n"
+              f"Setting: The story is set in both the present day and the Victorian era. "
+              f"The present-day setting is a bustling modern city known for its technological advancements. "
+              f"The Victorian setting is characterized by cobblestone streets, gas-lit lamps, and the early stages of industrialization.\n\n"
+              f"Main Characters:\n\n"
+              f"Alex: A curious and adventurous software engineer from the present day who inadvertently discovers a time-travel device.\n"
+              f"Eliza: A resourceful and intelligent Victorian-era inventor who dreams of changing the future.\n"
+              f"Plot Details: Discovery of the Time Machine: Alex discovers an old, mysterious device in their attic, left behind by a forgotten ancestor. "
+              f"Experimenting with it, they accidentally activate it and are transported to the Victorian era. Meeting Eliza: Alex meets Eliza, who is fascinated by the time machine "
+              f"and Alex's futuristic knowledge. Together, they explore the possibilities of time travel. A Threat Emerges: A sinister figure from the Victorian era learns about the time machine "
+              f"and wants to use it for nefarious purposes, threatening both the past and the future. Race Against Time: Alex and Eliza must work together to safeguard the time machine "
+              f"and prevent the alteration of history. They face challenges in both eras, blending elements of Victorian society with futuristic technology. "
+              f"Resolution: The story concludes with a thrilling confrontation, and a decision that affects both characters' destinies.\n"
+              f"Themes: The story explores themes of adventure, the ethics of time travel, the impact of technology on society, "
+              f"and the timeless nature of human curiosity and ambition.")
+
+    # Make the API call to OpenAI
+    try:
+        response = openai.Completion.create(
+            engine="text-davinci-003",  # You can choose a different model
+            prompt=prompt,
+            max_tokens=word_count,
+            n=1,
+            stop=None,
+            temperature=0.7
+        )
+
+        # Extract and return the generated story
+        return response.choices[0].text.strip()
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+
+def search_book(book_name):
+    # Base URL for the Open Library API
+    base_url = "http://openlibrary.org/search.json" #replace your api here 
+
+    # Parameters for the search query
+    params = {"q": book_name}
+
+    # Make the API request and parse the JSON response
+    response = requests.get(base_url, params=params)
+    data = json.loads(response.content)
+
+    # Extract the first result (assuming it's the closest match)
+    if data["numFound"] > 0:
+        book = data["docs"][0]
+        return book
+    else:
+        return None
+
+def query_command(command_dict, chat):
+    commands = [command_dict]
+    for message in chat:
+        for pattern, cmd in command_dict.items():
+            if pattern in message:
+                commands.append(cmd)
+    return commands if len(commands) > 1 else None
+
+
+def save_data(query, file_format, data, file_ext): #function to save data and place on dir file
+    
+    # Join query elements into a string if it's a list
+    if isinstance(query, list):
+        query = ' '.join(query)
+   
+    file_name = f"{query}.txt"
+    
+    # open the file in write mode
+    with open(file_name, "w") as f:
+        # write the data to the file
+        f.write(json.dumps(data))
+
+    # Create a subfolder to save the data files
+    data_folder = "data"
+    secondary_path = os.path.join(os.getcwd(), data_folder)
+    if not os.path.exists(secondary_path):
+        os.mkdir(secondary_path)
+
+    # Save the data to a file in the specified format
+    if file_format == "json":
+        filename = f"{query}.{file_ext}"
+        filepath = os.path.join(os.getcwd(), data_folder, filename)
+        with open(filepath, "w") as f:
+            json.dump(data, f)
+        print("JSON data saved successfully.")
+    elif file_format == "csv":
+        filename = f"{query}.{file_ext}"
+        filepath = os.path.join(os.getcwd(), data_folder, filename)
+        with open(filepath, "w", newline="") as f:
+            writer = csv.writer(f)
+            if isinstance(data, list):
+                header = data[0].keys()
+                writer.writerow(header)
+                for item in data:
+                    writer.writerow(item.values())
+            elif isinstance(data, dict):
+                header = data.keys()
+                writer.writerow(header)
+                writer.writerow(data.values())
+        print("CSV data saved successfully.")
+    else:
+        print("Unsupported file format.")
+       
+       
+def upload_file_csv(): #functionality to input the csv file 
+    # Create a Tkinter root window
+    root = tk.Tk()
+    root.withdraw()
+
+    # Prompt the user for the method of file selection
+    method = input("How would you like to select the file? (1 for path, 2 for dialog): ")
+
+    if method == "1":
+        # If the user chooses to input the file path
+        file_path = input("Enter the path to the CSV file: ")
+        return file_path
+        
+    elif method == "2":
+        # If the user chooses to use a dialog window
+        file_path = filedialog.askopenfilename(title="Select CSV file", filetypes=[("CSV files", "*.csv")])
+        if file_path:
+            return file_path
+        else:
+            print("No file selected.")
+            return None
+    else:
+        print("Invalid choice. Please enter 1 or 2.")
+        return None
+
+    
+def decide_query(query, query_confidence, query1, query1_confidence, comand_dict):
+    weight1 = 0.8  # weight of engine1 based on past performance
+    weight2 = 0.2  # weight of engine2 based on past performance
+
+    # Validate input values
+    if not (0 <= query_confidence <= 1) or not (0 <= query1_confidence <= 1):
+        raise ValueError("Confidence values must be between 0 and 1.")
+
+    weighted_query1_confidence = query_confidence * weight1
+    weighted_query2_confidence = query1_confidence * weight2
+
+    if weighted_query1_confidence > weighted_query2_confidence:
+        return query
+    elif weighted_query2_confidence > weighted_query1_confidence:
+        return query1
+    else:
+        # Return a default value or handle ties as necessary
+        return None  # Or return a specific value if needed
+def respond(input_text, command_dict): 
+    input_text = input_text.lower()
+
+    # Iterate through the command dictionary to find a matching command
+    for command, action in command_dict.items():
+        if command in input_text:
+            if action == "greet":
+                return "Hi there! How can I help you today?"
+            elif action == "exit":
+                return "Goodbye! Have a great day."
+            else:
+                return "Sorry, I didn't understand what you meant."
+
+    # If no command is found, list available actions
+    return "I can perform the following actions: " + ", ".join(command_dict.values())
+
+def get_element_value(url, element_tag, element_id, query): #functionality for the financial request apis 
+    element_id = query[0]
+    ticker = query.split()[-1]
+    api_key = ''
+    endpoint = f'https://financialmodelingprep.com/api/v3/ratios-ttm/AAPL?apikey={api_key}'
+    response = requests.get(endpoint)  # <-- Use the endpoint variable instead of the url argument
+    html = response.text
+    soup = BeautifulSoup(html, 'html.parser')
+    element = soup.find(element_tag, {'id': element_id})  # <-- Use the element_id argument instead of the query variable
+    if element [200]:
+        return element.get_text().strip()
+    return print('done')
+    
+def hypothesis_test(data1, data2, alpha=0.05):
+    """
+    Perform an independent t-test to compare the means of two datasets.
+
+    Parameters:
+    - data1: array-like, first dataset (e.g., list, NumPy array)
+    - data2: array-like, second dataset (e.g., list, NumPy array)
+    - alpha: float, significance level (default is 0.05)
+
+    Returns:
+    - t_statistic: float, the computed t-statistic
+    - p_value: float, the two-tailed p-value
+    """
+    # Validate input data
+    if len(data1) == 0 or len(data2) == 0:
+        raise ValueError("Both datasets must contain data.")
+    
+    # Perform the t-test
+    t_statistic, p_value = stats.ttest_ind(data1, data2)
+
+    # Print the results
+    print(f"T-statistic: {t_statistic:.4f}")
+    print(f"P-value: {p_value:.4f}")
+
+    # Determine whether to reject or fail to reject the null hypothesis
+    if p_value < alpha:
+        print("Reject the null hypothesis")
+    else:
+        print("Fail to reject the null hypothesis")
+    
+    return t_statistic, p_value
+
+def search_wikipedia(keyword=''): # function to query information in api of wilipedia 
+    if not keyword:
+        return 'Empty search keyword'
+    
+    try:
+        search_results = wikipedia.search(keyword)
+        if not search_results:
+            return 'No results found'
+        
+        first_result = search_results[0]
+        wiki_page = wikipedia.page(first_result)
+        
+        title = wiki_page.title
+        summary = wiki_page.summary
+        
+        return title, summary
+    except wikipedia.DisambiguationError as e:
+        # Handling disambiguation error
+        first_option = e.options[0]
+        wiki_page = wikipedia.page(first_option)
+        title = wiki_page.title
+        summary = wiki_page.summary
+        return title, summary
+    except wikipedia.PageError:
+        return 'Page not found'
+    except wikipedia.HTTPTimeoutError:
+        return 'Timeout when connecting to Wikipedia'
+    except Exception as e:
+        return f'Error: {str(e)}'
+
+   
+def listOrDict(var):
+    """
+    Extracts the 'plaintext' value from a dictionary or the first dictionary in a list.
+
+    Parameters:
+    - var: either a list of dictionaries or a single dictionary
+
+    Returns:
+    - The value associated with the 'plaintext' key, or None if the key is not found.
+    """
+    if isinstance(var, list):
+        # Check if the list is not empty and the first item is a dictionary
+        if var and isinstance(var[0], dict):
+            return var[0].get('plaintext', None)  # Use .get() to avoid KeyError
+    elif isinstance(var, dict):
+        return var.get('plaintext', None)  # Use .get() to avoid KeyError
+    
+    return None  # Return None if var is neither a list nor a dictionary
+
+def search_wolframalpha(keyword=''): # api request to wolfphram from query 
+    
+    response = wolframClient.query(keyword)
+    print(keyword)
+
+    # Query not resolved
+    if response['@success'] == 'false':
+        engine.say('I am sorry, I could not find any results for that query.')
+        engine.runAndWait()
+    # Query resolved
+    else: 
+        # Check if there's a direct result available
+        result_pod = next((p for p in response['pod'] if ('result' in p['@title'].lower()) or (p.get('@primary', 'false') == 'true') or ('definition' in p['@title'].lower())), None)
+        if result_pod is not None:
+            # Get the result
+            result = listOrDict(result_pod['subpod'])
+            # Remove bracketed section
+            result = result.split('(')[0]
+            # Speak the result
+            engine.say(result)
+            engine.runAndWait()
+        else:
+            # Get the interpretation from the first pod
+            question_pod = response['pod'][0]
+            question = listOrDict(question_pod['subpod'])
+            # Remove bracketed section
+            question = question.split('(')[0]
+            # Speak the interpretation
+            engine.say(question)
+            engine.runAndWait()
+
+            # Retrieve up to three additional pods and speak their contents
+            for pod in response['pod'][1:4]:
+                content = listOrDict(pod['subpod'])
+                engine.say(content)
+                engine.runAndWait()
+    save_data(question,"json",response, "txt") 
+def get_lat_long():   # function to determine the latitude and logitude based on name of the city 
+    api_key = ''
+    base_url = "https://api.opencagedata.com/geocode/v1/json"
+    city = input("Enter the city name: ")
+    params = {
+        'q': city,
+        'key': api_key,
+    }
+    
+    response = requests.get(base_url, params=params)
+
+    if response.status_code == 200:
+        data = response.json()
+        if data['results']:
+            location = data['results'][0]['geometry']
+            latitude = location['lat']
+            longitude = location['lng']
+            return latitude, longitude
+        else:
+            return None
+    else:
+        print(f"Error: {response.status_code}")
+        return None
+# Define the URL of the Flask server
+flask_url = "http://localhost:8080/ask"
+
+def main():
+    
+    if command.lower() == 'voice':
+        # Use voice command processing
+        parseCommand()
+    elif command.lower() == 'text':
+        # Use text command processing
+        text_command = input('Enter your text command: ')
+        get_input(text_command)
+    else:
+        print("Invalid option. Please choose either 'voice' or 'text'.")
+def get_command(command): #list of commands to simplify the command with vocal and text , taking the acivation words from the asked task 
+    command_dict = {
+        "stock": "compute stocks",
+        "stocks": "compute stocks",
+        "asteroids": "compute asteroid",
+        "lua": "compute asteroid",
+        "choose": "compute choose",
+        "music": "compute music",
+        "compute music": "compute music",
+        "trade": "compute trade",
+        "compute crypto": "compute crypto",
+        "compute note music": "compute record",
+        "compute learn": "compute learn",
+        "compute eonet": "compute eonet",
+        "memo": "compute memo",
+        "compute what's up": "greet",
+        "compute quit": "exit",
+        "compute bye": "exit",
+        "compute goodbye": "exit",
+        "compute weather": "compute weather",
+        "compute news": "compute news",
+        "compute search": "compute search",
+        "compute calculate": "compute calculation",
+        "compute data": "compute data visualization",
+        "compute timer": "compute timer",
+        "compute time": "compute time",
+        "compute date": "compute date",
+        "compute sports": "compute sports",
+        "compute movies": "compute movies",
+        "compute book": "compute book",
+        "compute flight": "compute flight",
+        "compute travel": "compute travel",
+        "compute tell music": "compute tell musicl",
+        "compute analyze personality": "compute personality analysis",
+        "compute traits": "compute personality traits",
+        "compute interpret dream": "compute dream interpretation",
+        "compute body language": "compute body language analysis",
+        "compute detect lie": "compute lie detection",
+        "compute social skills": "compute social skills analysis",
+        "compute emotional intelligence": "compute emotional intelligence analysis",
+        "compute self-esteem": "compute self-esteem analysis",
+        "compute stress level": "compute stress level analysis",
+        "compute mental health": "compute mental health analysis",
+        "compute confidence": "compute confidence analysis",
+        "compute personality test": "compute personality test",
+        "compute phobias": "compute phobia analysis",
+        "compute mood": "compute mood analysis",
+        "compute happiness": "compute happiness analysis",
+        "compute behavior patterns": "compute behavior patterns analysis",
+        "compute problem solving": "compute problem solving analysis",
+        "compute communication skills": "compute communication skills analysis",
+        "compute team dynamics": "compute team dynamics analysis",
+        "compute positive thinking": "compute positive thinking analysis",
+        "compute historical events": "compute historical events",
+        "compute timeline": "compute historical timeline",
+        "compute key figures": "compute key historical figures",
+        "compute monuments": "compute historical monuments",
+        "compute battles": "compute historical battles",
+        "compute wars": "compute historical wars",
+        "compute civilizations": "compute historical civilizations",
+        "revolutions": "compute historical revolutions",
+        "declarations": "compute historical declarations",
+        "inventions": "compute historical inventions",
+        "discoveries": "compute historical discoveries",
+        "pandemics": "compute historical pandemics",
+        "art movements": "compute historical art movements",
+        "music styles": "compute historical music styles",
+        "economic events": "compute historical economic events",
+        "political events": "compute historical political events",
+        "scientific advancements": "compute historical scientific advancements",
+        "cultural shifts": "compute historical cultural shifts",
+        "summarize data": "compute data summary",
+        "visualize data": "compute visualization",
+        "find outliers": "compute outlier detection",
+        "correlate variables": "compute variable correlation",
+        "predict outcome": "compute outcome prediction",
+        "identify patterns": "compute pattern recognition",
+        "compare groups": "compute group comparison",
+        "run regression": "compute regression analysis",
+        "determine causality": "compute causality analysis",
+        "perform hypothesis test": "compute hypothesis testing",
+        "calculate descriptive statistics": "compute descriptive statistics",
+        "forecast trends": "compute trend forecasting",
+        "cluster data": "compute data clustering",
+        "run a time series analysis": "compute time series analysis",
+        "perform sentiment analysis": "compute sentiment analysis",
+        "create a heatmap": "compute heatmap",
+        "generate a word cloud": "compute word cloud",
+        "asteroid": "asteroids",
+        "compute talk": "compute talk",
+        "compute news": "query_command",
+        "talk": "chatbot_response"
+    }
+    
+    
+        
+    user_input = input('').strip().lower()
+        
+    if user_input in command_dict:
+        return command_dict[user_input] 
+    else:
+        print(f"Command not found: {user_input}")  # Optional: inform the user the command is not found
+        return user_input
+
+def read_docx(file_path):
+    doc = docx.Document(file_path)
+    return "\n".join([para.text for para in doc.paragraphs])
+
+
+
+
+# Main loop
+def main(command):
+    speak('Hello!, My name is Helena ', 120)
+    
+
+    while True:
+        # Parse as a list
+        query_text = get_command(command).lower().split()
+        if query_text is  None:
+            
+            query = parseCommand().lower().split()
+        
+
+        if query_text is not None:
+            
+            query = query_text
+        else:
+            query = query
+        
+        if query and query[0] == activationWord:
+            query.pop(0)
+            
+
+            # Set commands 
+            if query[0] == 'compute':
+                if 'hello' in query:
+                    speak('Greetings, all! activation of chat ?')
+                                       
+                  
+                else:
+                    query.pop(0) # Remove 'say'
+                    speech = ' '.join(query) 
+                    speak(speech)
+            
+
+                #querys for conversation chating      
+              
+            # Navigation
+            if query[0]  == 'go':
+                speak('Opening... ')
+                # Assume the structure is activation word + go to, so let's remove the next two words
+                query = ' '.join(query[2:])
+                webbrowser.get('chrome').open_new(query)
+            
+                  
+                
+            
+                # Wolfram Alpha - it will use wolfram api and resources to query the information 
+            if query[0] == 'tell' or query[0] == 'tell':
+                query = ' '.join(query[1:])
+                try:
+                    result = search_wolframalpha(query)
+                    resul = json.read(result)
+                    print(resul)
+                    print(result)
+                    speak(result)
+                    
+                except:
+                    speak('Unable to compute')
+           #psychology  it will redirect to a project that aim to be achat bot of help for psycologic 
+            if query[0] == 'psychology ':
+                query = ' '.join(query[1:])
+                speak('how do you feel ??')
+                MYDAY = parseCommand().lower()
+                now = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+                with open('MYDAY_%s.txt' % now, 'w') as DAY:
+                    DAY.write(now)
+                    DAY.write(' ')
+                    DAY.write(MYDAY)
+                    speak('I feel that with you ')
+                    query = {MYDAY}
+                 
+                webbrowser.get('chrome').open(f'https://web.njit.edu/~ronkowit/eliza.html')
+                        # Set commands 
+            if query and query[0] == 'talk':
+                               
+                while True:
+                    user_input = chatbot_response
+                    response = chatbot_response(user_input,parseCommand,get_input)
+                    
+
+                    if user_input == 'exit':
+                        print("Chatbot: Exiting chat.")
+                        break  # Exit the chat loop
+
+                                   # Call the chatbot_response function for the user input
+                                   
+                    
+
+                print("Chatbot: End of conversation.")
+            else:
+                print("...")
+               # Note taking - it will memorize your voice note into txt file
+            if query[0] == 'memo':
+                speak('Ready to record/write your note')
+                print('ready to store your note ')
+                newNote = parseCommand()
+                folder_name = 'notes_memo'
+                path = os.path.join('.venv', folder_name)
+                if not os.path.exists(path):
+                        os.makedirs(path)
+
+                
+                now = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+                recording = True
+
+                with open(os.path.join(path, f'note_{now}.txt'), 'w') as newFile:
+                    newFile.write(now)
+                    newFile.write(' ')
+                    newFile.write(newNote)
+                speak('writing this down to the journal!')
+                
+                speak(newNote)
+                 
+
+
+   
+
+                while newFile:
+                    char = keyboard.read_event(suppress=True).name
+
+                    if char == 'space':
+                            newFile = True
+                    else:
+                            newNote 
+
+                   
+
+                
+             # basic query of weather using api , you must change the api for yours !   
+            if query[0] == 'weather':
+                
+                speak("which city do you want to check ?")
+                get_lat_long()
+                
+                
+                
+                                # Your OpenWeatherMap API key
+                api_key = ""
+
+                # Base URL for OpenWeatherMap API requests
+                
+
+                # City to get weather for
+                latitude, longitude = get_lat_long()
+                
+                print(latitude)
+                base_url = "https://api.openweathermap.org/data/2.5/weather"
+                response = requests.get(f"{base_url}?lat={latitude}&lon={longitude}&appid={api_key}")
+                
+                print(response)
+                # Make the API request
+                
+                print(response)
+                # Check if the request was successful
+                if response.status_code == 200:
+                # Get the response data as a JSON object
+                    data = json.loads(response.text)
+
+                # Print the current temperature
+                    print("Temperature: " + str(data["main"]["temp"]) + "°F")
+                    save_data(query, "json", data, "txt")
+                else:
+                # Print an error message
+                    print("Request failed with status code: " + str(response.status_code))
+                    
+                #simple function for timing and timer 
+            if query[0] == 'timer':
+                # Specify the duration of the timer in seconds
+                speak('How much time should I count?')
+                dura = input()
+                duration = int(dura)
+
+                print("Timer started for {} seconds.".format(duration))
+
+                # Start the timer
+                start_time = time.time()
+
+                # Keep checking the elapsed time until it reaches the desired duration
+                while (time.time() - start_time) < duration:
+                    seconds_passed = int(time.time() - start_time)
+                    print("Seconds passed: {}".format(seconds_passed))
+                    time.sleep(1)
+            
+
+                print(seconds_passed)
+                speak("Time's up!")
+                        # Timer is up
+                print("Time's up!")
+                #time date from localization query 
+            if query[0] == 'time':
+                current_time = datetime.now()
+                formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")  # Format the datetime object as a string
+                print("The current date and time is:", formatted_time)
+                speak("The current date and time is: {}".format(formatted_time))
+                
+            #movies query review using api and query 
+            if query[0] == 'movies':
+            # Define the API key
+                api_key = ""
+
+                # Define the movie title
+                movie_title = input("Enter the movie title: ").strip()
+
+                # Construct the URL to make the API request
+                url = f"http://www.omdbapi.com/?t={movie_title}&apikey={api_key}"
+                print("Request URL:", url)  # Print the request URL for debugging
+
+                # Make the API request
+                response = requests.get(url)
+                
+                print("Response Status Code:", response)  # Print the response status code
+
+                # Check if the API request was successful
+                if response.status_code == 200:
+                    # Parse the API response as JSON
+                    data = response.json()
+
+                    # Check if the response indicates a successful query
+                    if data.get("Response") == "True":
+                        # Print detailed information about the movie
+                        print("Title:", data.get("Title"))
+                        print("Year:", data.get("Year"))
+                        print("Rated:", data.get("Rated"))
+                        print("Released:", data.get("Released"))
+                        print("Runtime:", data.get("Runtime"))
+                        print("Genre:", data.get("Genre"))
+                        print("Director:", data.get("Director"))
+                        print("Writer:", data.get("Writer"))
+                        print("Actors:", data.get("Actors"))
+                        print("Plot:", data.get("Plot"))
+                        print("Language:", data.get("Language"))
+                        print("Country:", data.get("Country"))
+                        print("Awards:", data.get("Awards"))
+                        print("IMDb Rating:", data.get("imdbRating"))
+                        print("IMDb Votes:", data.get("imdbVotes"))
+                        print("Type:", data.get("Type"))
+                        print("Total Seasons:", data.get("totalSeasons"))
+                        print("Poster URL:", data.get("Poster"))
+
+                        # Assuming save_data() is a valid function you've defined
+                        save_data()
+                    else:
+                        print("Movie not found or no rating available.")
+                else:
+                    # Print an error message if the API request failed
+                    print("Failed to get movie rating. Response code:", response.status_code)
+                    if response.status_code == 401:
+                        print("Check if your API key is valid and has the necessary permissions.")
+            if query[0] == 'sports': #scrape google answer 
+               
+                #paid API 
+            # Define the API endpoint
+                url = "https://api.sportsdata.io/v3/mma/scores/json/Schedule/ufc/2022"
+
+                # Add your API key to the request header
+                headers = {
+                    "Ocp-Apim-Subscription-Key": "51875ab2cb284085b5416e74ebcc5020"
+                }
+
+                # Make the API request
+                response = requests.get(url, headers=headers)
+
+                # Check if the request was successful
+                if response.status_code == 200:
+                    # Parse the response data as JSON
+                    data = response.json()
+
+                    # Specify the CSV file path
+                    csv_file_path = "ufc_schedule_2022.csv"
+
+                    # Write data to the CSV file
+                    with open(csv_file_path, mode='w', newline='', encoding='utf-8') as csv_file:
+                        # Define CSV columns
+                        fieldnames = ['EventId', 'LeagueId', 'Name', 'ShortName', 'Season', 'Day', 'DateTime', 'Status', 'Active']
+
+                        # Create a CSV writer
+                        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+                        # Write header
+                        csv_writer.writeheader()
+
+                        # Write data rows
+                        for event in data:
+                            csv_writer.writerow(event)
+
+                    print(f"CSV file '{csv_file_path}' created successfully.")
+                    print("EventId:", event['EventId'], "| ShortName:", event['ShortName'])
+                else:
+                    # Print an error message if the API request failed
+                    print("Failed to retrieve UFC schedule. Response code:", response.status_code)  
+                    
+        
+        
+             #book review api to query this 
+            if query[0] == 'book':
+                        # Example usage
+                    speak("Name of the book:")
+                    book_name = input()
+                    # Example usage
+                    speak("name of the book")
+                    bookname = input()
+                    book_name = f"{bookname}"  # Corrected string formatting
+                    book = search_book(book_name)
+                    if book:
+                        print("Title:", book.get("title", "Unknown"))
+                        print("Author(s):", book.get("author_name", "Unknown"))
+                        print("Published:", book.get("first_publish_year", "Unknown"))
+                        print("ISBN:", book.get("isbn", "Unknown"))
+                        save_data()  # Add appropriate arguments to save_data function
+                    # Search for books with similar names using fuzzy string matching
+                    book_matches = []
+                    for book in  book_data:
+                        book_title = book.get("title", "")
+                        match_ratio = fuzz.token_sort_ratio(book_name.lower(), book_title.lower())
+                        if match_ratio >= 70:  # Only consider matches with a ratio of 70 or higher
+                            book_matches.append((book, match_ratio))
+
+                    if book_matches:
+                        # Display the book(s) with the highest match ratio
+                        max_ratio = max(match_ratio for _, match_ratio in book_matches)
+                        best_books = [book for book, match_ratio in book_matches if match_ratio == max_ratio]
+                        if len(best_books) == 1:
+                            book = best_books[0]
+                            print("Title:", book.get("title", "Unknown"))
+                            print("Author(s):", book.get("author_name", "Unknown"))
+                            print("Published:", book.get("first_publish_year", "Unknown"))
+                            print("ISBN:", book.get("isbn", "Unknown"))
+                            speak(f"The book '{book_name}' has been found.")
+                        else:
+                            print(f"Multiple books found with similar names to '{book_name}':")
+                            for book in best_books:
+                                print("- Title:", book.get("title", "Unknown"))
+                                print("  Author(s):", book.get("author_name", "Unknown"))
+                            speak(f"Multiple books found with similar names to '{book_name}'.")
+                    else:
+                        print(f"No results found for '{book_name}'")
+                        speak(f"The book '{book_name}' could not be found.")
+            #travel warning and advises based in the city that you will go 
+            if query[0] == 'travel':
+                # Set the API endpoint and parameters and the country by FR BR USA SYMBOL
+                country = input('which country you are going ? ')
+                print(country)
+                url = "https://www.travel-advisory.info/api"
+                params = {
+                        "countrycode": country
+                         }
+
+                # Make the request and get the response
+                response = requests.get(url, params=params)
+                print(params)
+                # Check if the request was successful
+                # Check if the request was successful
+                if response.status_code == 200:
+                # Get the response data as a JSON object
+                    data = response.json()
+                    
+                # Print the advisory message for the country
+                    message = data["data"][country]["advisory"]["message"]
+                    print(f"Advisory message for {country}:", message)
+
+                # Save the data to a file
+                    filename = f"{country}_advisory.json"
+                    with open(filename, 'w') as file:
+                        json.dump(data, file, indent=2)
+                        print(f"Advisory information saved to {filename}")
+                # historic moment based on date which will query on wikipedia and google to give the data 
+            if query[0] == 'historic':   
+                speak('Which moment of history do you want to check? ')
+                print('Please input the date in the format MM/DD(2022/04/08):')
+                dates = input()
+
+                # Set the date for which you want to retrieve the "On this day" events
+                date = dates
+
+                # Set the API endpoint for Wikimedia
+                url = f'https://api.wikimedia.org/feed/v1/wikipedia/en/featured/{date}'
+
+                
+
+                # Replace 'YOUR_ACCESS_TOKEN' and 'YOUR_APP_NAME (YOUR_EMAIL_OR_CONTACT_PAGE)' with your actual values
+                headers = {
+                    'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2ODBiNGUwOTNjMzA1OWY1NWUyYzQ0MmU5MDM1YjcxYyIsImp0aSI6Ijk4N2UzZDNkZDVhOTQzNTZjY2VjMjc2NzNiOTRlNTE3NjFlZWNlMjExMzJlNzgwZmY0MGE1ODAwMzBlOGI0MzhlZjllNGIzOGNlODZjZDUyIiwiaWF0IjoxNzEyOTU3MzI0Ljc4MzU0MywibmJmIjoxNzEyOTU3MzI0Ljc4MzU0NiwiZXhwIjozMzI2OTg2NjEyNC43ODIxMSwic3ViIjoiNzU0MTgxNDYiLCJpc3MiOiJodHRwczovL21ldGEud2lraW1lZGlhLm9yZyIsInJhdGVsaW1pdCI6eyJyZXF1ZXN0c19wZXJfdW5pdCI6NTAwMCwidW5pdCI6IkhPVVIifSwic2NvcGVzIjpbImJhc2ljIl19.F06VEs7fK9p5tVPAk777WCEXSolfhM3ittyb7qxa0RgqXHW6-e4fNGc-qTGpXDnjjQt1NoG6o26dbFIKpGXThukm0Cpfy4vuDKObchh1FKA9nxd61CIVcH8XcRoOw1PZLliwh73Hz8Qk2B5Ws7-TixeUF3jQmHn0CDxXdQt7mCpytJBHCf9Z-5zHwHaKwWvT7h__TS802Im6glnzmYrJmnFaKZMCgLBUs79c1ygMHnyysfs7hOYYnpwsH6gXLFxEmX4w6caEnQSeh_uQ6dsVo4bPYjH1eYuCBSLwjNhWA0vetId06GzWGXj2ubjIRRdNtDK1kZ9K9E51KvTod0iygP17PD4RRWU9whhDXgJP5y6SarTfQ-rc07VTWhqNCvFbrmsBjxzXQtSd-RPcqJqKmkxey-xvqeYMYqwJhkB9FYSgLhNGGOiRkC1PTt4M32MkYeLaaDa8x0nU-2BUIlgdnU8yy3ty4WBbVEC8RmNcAN64VGaQ0MCpri_bGubOcOKaaSZV7mmGmXyFr0ILRkaFXdnw5NLGM6Brr7Vm6SaqbT_tyBYyUlbVDzKZ0KuzvGx6qQ78KFFRbjmBfh9HYx0_FSrh9RgtV2z8fUOMki0Y0_GqEPCuT0D2Yuh4imsa0i-yUvuBFH5ndhIUr1-8lYlK3eTtmqfRTzsYO78u-7Q5nUo',
+                    'User-Agent': 'soter0012@outlook.com'
+                }
+
+                try:
+                    # Make the API request
+                    response = requests.get(url, headers=headers)
+                    
+                    # Check if the request was successful
+                    if response.status_code == 200:
+                        # Parse the JSON response
+                        data = response.json()
+                        # Save the data to a file
+                        
+                        
+                        
+                        # Process the data as needed
+                        print(data)
+                        # Save the data to a file
+                        save_data("historic_moment", "json", data, "json")
+                    else:
+                        print("Error:", response.status_code)
+                except Exception as e:
+                    print("An error occurred:", e)
+                        
+                        
+            if query[0] == 'geocode':
+                geocoder = opencage.geocoder.OpenCageGeocode("2328b5957aca4be69dcfb3c423eac0a9")
+
+                # Geocode an address
+                address = input("Enter the address: ")
+                result = geocoder.geocode(address)
+
+                # Extract the latitude and longitude from the result
+                location = result[0]['geometry']
+                lat, lng = location['lat'], location['lng']
+                print(f"Latitude: {lat}, Longitude: {lng}")
+
+                # Make a request to the OpenCage Geocoding API using the obtained coordinates
+                url = f"https://api.opencagedata.com/geocode/v1/json?q={lat}%2C{lng}&key=7bfaddaf215e4a0b835b8f6ba82be65a&pretty=1"
+                response = requests.get(url).json()
+                print(json.dumps(response, indent=2))
+
+                # Save the data to a file
+                filename = "geocode_result.json"
+                with open(filename, 'w') as file:
+                    json.dump(response, file, indent=2)
+                    print(f"Geocode information saved to {filename}")
+                
+            if query[0] == 'history':
+                # Get user input for the historical topic
+                topic = input("Enter the historical topic: ")
+                
+                result = search_wikipedia(topic)
+                # Print or handle the result as needed
+                print(result)
+                                
+            if query[0] == 'museum' :
+                speak('What do you want to know about?')
+                # Replace <YOUR_API_KEY> with your Europeana API key
+                api_key = "ggracila"
+
+                # Set the API endpoint and parameters
+                endpoint = "https://www.europeana.eu/api/v2/search.json"
+                params = {
+                    "query": query[1],  # Replace "museum archives" with user input
+                    "media": True,
+                    "api_key": api_key
+                }
+
+                try:
+                    # Send the request to the API and parse the response
+                    response = requests.get(endpoint, params=params)
+                    data = json.loads(response.text)
+                    print(data)
+
+                 
+                except:
+                    speak("Sorry, something went wrong. Please try again later.")
+
+                
+            if query[0] == 'religion' :
+                speak('Which religious book do you want to consult -QURAN -BIBLE -ESOTERIC -HINDU ')
+                reli = input()
+
+                if reli.lower() == "quran":
+                    # Set up the API endpoint for Quran
+                    url = "https://api.alquran.cloud/v1/ayah/{}/{}"
+                    # Get a random surah number (chapter)
+                    surah_num = str(random.randint(1, 114))
+                    # Get the number of verses in the surah
+                    response = requests.get(f"https://api.alquran.cloud/v1/surah/{surah_num}")
+                    num_verses = response.json()['data']['numberOfAyahs']
+                    # Get a random verse number
+                    verse_num = str(random.randint(1, num_verses))
+                    # Make the API request to get the verse text
+                    response = requests.get(url.format(surah_num, verse_num))
+                    verse = response.json()['data']['text']
+                    # Print the verse text
+                    print(f"Surah {surah_num}, Verse {verse_num}: {verse}")
+
+                elif reli.lower() == "bible":
+                    # Set up the API endpoint for Bible
+                    bible_url = "https://bible-api.com/{verse}"
+                    # Get a random verse number
+                    verse_num = str(random.randint(1001001, 1003111))  # There are 31102 verses in the Bible
+                    # Make the API request to get the Bible verse
+                    response = requests.get(bible_url.format(verse=verse_num))
+                    bible_verse = response.json()['text']
+                    
+                    # Specify the folder path for Religion_infos
+                    folder_path = r'C:\dep\A.i Leo\.venv\Religion_infos'
+                    # Create the folder if it doesn't exist
+                    os.makedirs(folder_path, exist_ok=True)
+                    # Specify the file path within the folder
+                    file_path = os.path.join(folder_path, 'bible_verse.txt')
+
+                    # Write the Bible verse to the file
+                    with open(file_path, 'w', encoding='utf-8') as file:
+                        file.write(bible_verse)
+
+                    print(f"Bible verse saved to '{file_path}'")
+           
+             # Set up the API endpoint
+                    url = "https://labs.bible.org/api/?passage=random&type=json"
+
+                    # Make the API request to get a random verse
+                    response = requests.get(url)
+
+                    # Extract the verse text and reference from the JSON response
+                    verse = response.json()[0]['text']
+                    reference = response.json()[0]['bookname'] + ' ' + response.json()[0]['chapter'] + ':' + response.json()[0]['verse']
+
+                    # Print the verse text and reference
+                    print(reference)
+                    print(verse)
+               
+                    
+                    
+                if reli == "hindu" :
+                    
+            # Define the endpoint URL
+                    endpoint = "https://api.publicapis.org/entries"
+
+                    # Define the query parameters
+                    params = {
+                        "category": "Books",
+                        "description": "Hinduism",
+                        "auth": "apiKey"  # This ensures that only APIs with an apiKey are returned
+                    }
+
+                    # Send the request to the API and parse the response
+                    response = requests.get(endpoint, params=params)
+                    data = json.loads(response.text)
+
+                    # Extract the relevant information from the response and format it for the user
+                    results = data["entries"]
+                    if results:
+                        titles = [result["API"] for result in results]
+                        result = "Here are the top results:\n" + "\n".join(titles)
+                        print(result)
+                    else:
+                        print("No results found.")
+
+
+                           
+                   
+            if query [0] in ['dream', 'zodiac', 'moon'] : 
+                #change api
+               
+                print('Date of births and information to compute your sign and more...')
+                query3 = input()
+                
+               
+                    # Set up parameters for the zodiac API
+                                # Set up parameters for the zodiac API
+                params = {
+                    'sign': query3,
+                    'day': 'today',
+                }
+
+                # Make the API request
+                response = requests.post('https://aztro.sameerkumar.website/', params=params)
+                print(response)
+                print(params)
+
+                if response.status_code == 200:
+                    # Successful request
+                    prediction2 = response.json()
+                    
+                    # Print and speak the results
+                    print(prediction2)
+                    astros = prediction2['description']
+                    lucky = prediction2['lucky_number']
+                    tmlc = prediction2['lucky_time']
+                    speak(astros)
+                    speak('Your lucky number and time')
+                    speak(lucky)
+                    speak(tmlc)
+                else:
+                    print(f"Error: {response.status_code}, {response.reason}")
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            # data knowledge
+            
+            if query[0] == 'datasummary':
+                print("Select the CSV file to upload:")
+                file_path = upload_file_csv()
+                print(file_path)
+
+                if file_path:
+                    print("File selected:", file_path)
+                    # Read the CSV file into a pandas DataFrame
+                    df = pd.read_csv(file_path)
+                    columns = df.columns
+                    print("Columns in the CSV file:")
+                    for column in columns:
+                        print(column)
+
+                    # Sample query
+                    query5 = input('Enter a column name for summary: ')
+
+                    # Validate the input column name
+                    if query5 not in columns:
+                        print("Invalid column name.")
+                    else:
+                        # Confirm the chosen column name
+                        confirm_column = input(f"Confirm column name '{query5}' (yes/no): ").lower()
+
+                        if confirm_column == 'yes':
+                            # Sample query
+                            stat = input('Enter a summary statistic (mean, median, min, max, sum, count, std, var): ')
+
+                            # Create a parser object
+                            parser = argparse.ArgumentParser(description='Process user data request.')
+
+                            # Add a required argument for the data column
+                            parser.add_argument('column', type=str, help='Name of the data column', choices=columns)
+
+                            # Add a required argument for the summary statistic
+                            parser.add_argument('stat', type=str, help='Name of the summary statistic',
+                                                choices=['mean', 'median', 'min', 'max', 'sum', 'count', 'std', 'var'])
+
+                            # Parse the command line arguments
+                            args = parser.parse_args([query5, stat])
+
+                            # Compute the requested summary statistic
+                            if args.stat == 'mean':
+                                result = df[args.column].mean()
+                            elif args.stat == 'median':
+                                result = df[args.column].median()
+                            elif args.stat == 'min':
+                                result = df[args.column].min()
+                            elif args.stat == 'max':
+                                result = df[args.column].max()
+                            elif args.stat == 'sum':
+                                result = df[args.column].sum()
+                            elif args.stat == 'count':
+                                result = df[args.column].count()
+                            elif args.stat == 'std':
+                                result = df[args.column].std()
+                            else:
+                                result = df[args.column].var()
+
+                            # Find the indices of the highest and lowest values in the column
+                            max_index = df[args.column].idxmax()
+                            min_index = df[args.column].idxmin()
+
+                            # Get the corresponding values
+                            max_value = df[args.column].iloc[max_index]
+                            min_value = df[args.column].iloc[min_index]
+
+                            # Written summary
+                            written_summary = f"The {args.stat} of the column '{args.column}' is {result}. " \
+                                            f"The highest value ({max_value}) occurred at index {max_index} " \
+                                            f"and the lowest value ({min_value}) occurred at index {min_index}. "
+
+                            # Add possible conclusions based on the highest and lowest values
+                            if args.stat in ['mean', 'median', 'std', 'var']:
+                                written_summary += "This suggests that the data is distributed around the mean, " \
+                                                "with some outliers present."
+                            elif args.stat in ['min', 'max']:
+                                written_summary += "This indicates the extreme values in the dataset. " \
+                                                "Further investigation may be needed to understand the reasons " \
+                                                "behind these extreme values."
+
+                            print(written_summary)
+                            # Print the requested summary statistic
+                            print(f"The requested summary statistic ({args.stat}) for column '{args.column}' is: {result}")
+                        else:
+                            print("Column name confirmation failed. Please try again.")
+            if query[0] == 'visualization':
+                            speak('which data you want visualizate')
+                            quest  = "{parseCommand} + .csv"
+                            print("Enter file name: ")
+                            filez = input()
+                
+                            with open(filez, "r") as file:
+                                print(file)
+                            # Read the csv file into a pandas DataFrame
+                            df = pd.read_csv(filez)
+                            print(df)
+                            colum = df.columns
+                            print(colum)
+                            
+
+                            try:
+            # Read the csv file into a pandas DataFrame
+                                df = pd.read_csv(filez)
+            
+            # Display DataFrame
+                                print("DataFrame:")
+                                print(df)
+
+            # Get column names
+                                columns = df.columns
+                                print("Columns:")
+                                print(columns)
+
+            # Plot the data in the DataFrame and save the plots
+                                for column in columns:
+                                    plot = df[column].value_counts().plot(kind='barh', title=f'Horizontal Bar plot for {column}', figsize=(10, 6))
+                                    plt.xlabel(column)
+                                    plt.ylabel("")
+                                    output_directory = "files_visualization"
+                # Save the plot to a file
+                                    output_filename = os.path.join(output_directory, f'{column}_visualization.png')
+                                    plot.get_figure().savefig(output_filename)
+                # Show the plot
+                                    plt.show()
+
+                            except FileNotFoundError:
+                                print(f"Error: File {filez} not found.")
+
+            if query[0] == 'outcome':
+                print("Select the CSV file to upload:")
+                file_path = input("")
+                speak("I can make an outcome from a CSV file. I will give the accuracy or more data if necessary.")
+                
+                # Load the data into a pandas dataframe
+                df = pd.read_csv(file_path)
+                
+                
+                # Display column names
+                xs = df.columns
+                print(xs)
+                print('define x & y in order  ')
+                x3 = input('')
+                y2 = input('')
+                
+# Split the data into features and target variable
+                X = df.drop(x3, axis=1)
+                y = df[y2]
+                print(y)
+
+                
+                # Assuming 'TotalResponse' is the target variable column
+                label_encoder = LabelEncoder()
+                y_train_encoded = label_encoder.fit_transform(y2)
+                y_test_encoded = label_encoder.transform(y2)
+
+                # Train the decision tree classifier on the training data
+                clf = DecisionTreeClassifier()
+                clf.fit(x3, y_train_encoded)
+
+                # Use the trained classifier to make predictions on the test data
+                y_pred = clf.predict(x3)
+
+                # Decode predictions if necessary
+                y_pred_original = label_encoder.inverse_transform(y_pred)
+
+                # Calculate the accuracy of the classifier
+                accuracy = accuracy_score(y_test_encoded, y_pred)
+                print("Accuracy:", accuracy)
+# Split the data into training and testing sets
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train the random forest classifier on the training data
+                clf = DecisionTreeClassifier()
+                clf.fit(X_train, y_train)
+
+# Use the trained classifier to make predictions on the test data
+                y_pred = clf.predict(X_test)
+
+# Calculate the accuracy of the classifier
+                accuracy = accuracy_score(y_test, y_pred)
+                print("Accuracy: ", accuracy)
+            if query[0] == 'pattern':
+                # Load the data (corrected file path)
+                data = pd.read_csv(r"C:\dep\A.i Leo\.venv\chord-progressions.csv")
+
+                # Select the relevant columns
+                chords = ['1st chord', '2nd chord', '3rd chord', '4th chord']
+                X = data[chords]
+                y = data['progression quality']
+
+                # One-hot encode the progression quality variable
+                encoder = OneHotEncoder()
+                y = encoder.fit_transform(y.to_numpy().reshape(-1, 1)).toarray()
+
+                # Split the data into training and testing sets
+                train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.3, random_state=42)
+
+                # Train the model
+                model = LinearRegression()
+                model.fit(train_X, train_y)
+
+                # Make predictions on the test set
+                predictions = model.predict(test_X)
+
+                # Evaluate the model
+                mse = mean_squared_error(test_y, predictions)
+                print("Mean Squared Error:", mse)
+                print(predictions)
+            if query[0] == 'comparison':
+                print('Enter the path to the CSV file:')
+                csv_path = input()
+                
+                # Load data from the CSV file
+                data = pd.read_csv(csv_path)
+                df = pd.DataFrame(data)
+                
+                # Display available columns
+                print('Columns in the DataFrame:')
+                print(df.columns)
+                
+                print('Enter the columns for comparison (group 1 and group 2):')
+                group1_column = input('Group 1: ')
+                group2_column = input('Group 2: ')
+
+                # Check if the selected columns are numeric
+                if group1_column not in df.columns or group2_column not in df.columns:
+                    print('Invalid column names. Please choose numeric columns.')
+                else:
+                    # Extract numeric values for the two groups
+                    group1_values = df[group1_column].dropna()
+                    group2_values = df[group2_column].dropna()
+
+                    # Perform t-test
+                    t_statistic, p_value = ttest_ind(group1_values, group2_values)
+
+                    print("\nComparison conclusion:")
+                    print(f"T-statistic: {t_statistic:.2f}")
+                    print(f"P-value: {p_value:.4f}")
+
+                    # Interpret the results based on the p-value
+                    alpha = 0.02  # significance level
+                    if p_value < alpha:
+                        print("There is a significant difference between the means of the two groups.")
+                    else:
+                        print("There is no significant difference between the means of the two groups.")
+            if query[0] == 'causality':
+                                # Read the CSV file
+                    print('Enter the path to the CSV file:')
+                    csv_path = input()
+                    df = pd.read_csv(csv_path)
+
+                    # Display available columns
+                    print('Columns in the DataFrame:')
+                    print(df.columns)
+
+                    # Choose columns for Granger causality test
+                    print('Enter the columns for Granger causality test (x and y):')
+                    x_column = input('x: ')
+                    y_column = input('y: ')
+
+                    # Check if the selected columns exist in the DataFrame
+                    if x_column not in df.columns or y_column not in df.columns:
+                        print('Invalid column names. Please choose columns that exist in the DataFrame.')
+                    else:
+                        # Extract relevant columns for Granger causality test
+                        df_granger = df[[x_column, y_column]]
+
+                        # Perform Granger causality test
+                        max_lag = 1  # You can adjust the lag value based on your specific needs
+                        result = grangercausalitytests(df_granger, max_lag, verbose=True)
+
+                        # Interpret the results
+                        print("\nGranger Causality Test Results:")
+                        for lag in range(1, max_lag + 1):
+                            p_value = result[lag][0]['ssr_ftest'][1]
+                            print(f"Lag {lag}: p-value = {p_value:.4f}")
+                            if p_value < 0.05:
+                                print(f"There is evidence of Granger causality from {x_column} to {y_column} at lag {lag}.")
+                            else:
+                                print(f"There is no evidence of Granger causality from {x_column} to {y_column} at lag {lag}.")
+           
+            if query[0] == 'hypothesis':   
+                print('input your csv file')
+                filepatx = input()
+         # Load data from CSV file
+                df = pd.read_csv(filepatx)
+                print('write your x and y ')
+                x44 = input()
+                y45 = input()
+                # Split data into two samples
+                group1 = df[df['group'] == 'group1'][x44]
+                group2 = df[df['group'] == 'group2'][y45]
+
+                # Perform t-test assuming unequal variances
+                t_stat, p_val = stats.ttest_ind(group1, group2, equal_var=False)
+
+                # Print results
+                print(f"t-statistic: {t_stat}")
+                print(f"p-value: {p_val}")
+                if p_val < 0.05:
+                    print("Reject null hypothesis")
+                else:
+                    print("Fail to reject null hypothesis")     
+            if query[0] == 'news':
+                # Your NewsAPI key
+                api_key = ""
+                
+# Base URL for NewsAPI requests
+                base_url = "https://newsapi.org/v2/top-headlines"
+
+# Category to get headlines for
+                category = "business"
+                language = 'en'
+                sort_by = 'relevancy'
+
+# Make the API request
+                response = requests.get(base_url + "?category=" + category + "&language=" + language + "&sortBy=" + sort_by + "&apiKey=" + api_key)
+                print(response)
+# Check if the request was successful
+                if response.status_code == 200:
+    # Get the response data as a JSON object
+                    data = json.loads(response.text)
+
+    # Print the top headlines
+                    for article in data["articles"][:10]:
+                        print("* " + article["title"])
+                        save_data(query, "json", article, "json")
+                        
+                     
+                else:
+             # Print an error message
+                    print("Request failed with status code: " + str(response.status_code))
+                    
+            
+            if query[0] == 'calculation':
+              # Your Wolfram Alpha API key
+                appId = 'QAU757-T53LGA3TY3'
+                wolframClient = wolframalpha.Client(appId)
+                # User's query
+                cals = input()
+                query = f"{cals}"
+
+                # Create a new Wolfram Alpha client instance
+                client = wolframalpha.Client(appId)
+
+                # Make the API request and get the response as a Python object
+                response = client.query(query)
+
+                # Extract the result from the response object
+                result = next(response.results).text
+
+# Print the result to the console
+                print(result)
+                
+                save_data(cals, "calculation", result, "txt")
+
+
+
+
+
+
+                
+                
+           
+
+   
+            
+             #music Know   
+                                  
+                                    
+                
+            if query[0] == 'music':
+                query = ' '.join(query[1:])
+                speak('Choose your vibe:')
+                print('1-dance 2-trip 3-relax 4-celebrate 5-chill')
+                print('Music genre:')
+                print('1-Rock 2-Pop 3-Hip Hop 4-Electronic 5-Indie 6-Jazz 7-Blues 8-Soul 9-Folk 10-R&B 11-Funk 12-Latin Music 13-World 14-Reggae 15-Electronic Dance Music (EDM) 16-Heavy Metal 17-Punk 18-Grunge 19-Alternative 20-Ambient 21-Experimental 22-Classical 23-Techno 24-House 25-DeepHouse 26-Minimal tech 27-Give a name ')
+                time.sleep(1)
+
+                Answer = parseCommand()
+                now = datetime.now().strftime("%Y-%m-%d-")             
+                if isinstance(Answer, str):
+                    # Write the user's music choice to a text file
+                    with open('MusicChoice_%s.txt' % now, 'w') as choicee:
+                    
+                    
+                   
+                        print(choicee)
+                        choicee.write('')
+                        choicee.write(Answer)
+                        speak('your choice'+Answer)
+                    
+                    if query == 'Choose':
+                        
+                        speak('what do you want to play?')
+                    NMusic = parseCommand()
+                    now = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+                    with open('NMUSIC_%s.txt' % now, 'w') as newMusic:
+                        newMusic.write(now)
+                        newMusic.write(' ')
+                        newMusic.write('{NMusic}')
+                        speak(NMusic)
+                        query = {NMusic}
+                        webbrowser.get('chrome').open(f'https://www.youtube.com/search?q={NMusic}')
+                
+                    if Answer == 'dance': 
+                        #dance is evaluated by sentimental analyse + command 
+                                                    
+                        webbrowser.get('chrome').open('https://www.youtube.com/watch?v=QK2mtWjtyDU')
+                                
+                    
+                    if Answer == 'rock':
+                        # Define the URL for the YouTube playlist
+                        playlist_url = 'https://www.youtube.com/watch?v=tAGnKpE4NCI&list=PLZN_exA7d4RVmCQrG5VlWIjMOkMFZVVOc'
+
+                        # Use webbrowser to open the URL in Chrome
+                        webbrowser.get('chrome').open(playlist_url)
+                    if Answer == 'pop':
+                            
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=POP+music')
+                    if Answer == 'hip Hop':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/watch?v=ThaeNO-mVJc')
+                    if Answer == 'electronic':
+                    
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=eletronic+music')
+                    
+                    if Answer == 'indie':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/watch?v=Oextk-If8HQ&list=PL4BrNFx1j7E7BDa131cA8Aax0QtfDbWeS')
+                        
+                    if Answer == 'jazz':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Jazz')
+                        
+                    if Answer == 'blues':
+                        
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Blues')
+                    if Answer == 'soul':
+                        
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Soul')
+                    if Answer == 'folk':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Folk')
+                    if Answer == 'reb':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=rhythm+and+blues+')
+                    if Answer == 'latin music':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Latin+Music')
+                        
+                    if Answer == 'reggae':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/watch?v=z4ScbuTIbgM')
+                        
+                    if Answer == 'heavy metal':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Heavy+Metal')
+                        
+                    if Answer == 'grunge':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/watch?v=VUb450Alpps&list=PLrED3zc8hdtRIQf1qnCtfPnrjoHNQkxOS')
+                        
+                    if Answer == 'alternative':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/watch?v=C-Naa1HXeDQ&list=PL795aDbK_A8F5VWD4otZOXutge7rEugKC')
+                                        
+                    
+                    if Answer == 'ambient':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Ambient+Music')
+                        
+                    if Answer == 'classical':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/watch?v=9E6b3swbnWg&list=RDQMPRd3U-AHy8g&start_radio=1')
+                    if Answer == 'house':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=House+')
+                    if Answer == 'deephouse':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/watch?v=bp6HkgUOaCk')
+                        
+                    if Answer == 'lofi':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Lofi+')
+                    if Answer == 'trend':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Trend')
+                    if Answer == 'africabeat':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Africabeat')
+                    if Answer == 'drums':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=Drums')
+                    
+                    if Answer == 'give a name...':
+                        print('Soundcloud? Podcast?')
+                        nam = parseCommand.lower()
+                        webbrowser.get('chrome').open('https://soundcloud.com/discover')
+                        
+                    if Answer == 'minimal tech':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/watch?v=YbfHVDTZn0o&list=LL&index=34')
+
+                    if Answer == 'relax':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=+relax+playlist')
+                    if Answer == 'chill':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=+chill+playlist')    
+                    if Answer == 'celebrate':
+                        
+                        webbrowser.get('chrome').open('https://www.youtube.com/results?search_query=+celabrate+playlist')      
+                        
+            
+            if query ==  'musicnote''create' 'record': 
+                        speak('Ready to record your music idea')
+                        Musicidea = parseCommand()
+                        now = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+                        with open('Musicidea_%s.txt' % now, 'w') as Ideamus:
+                            Ideamus.write(now)
+                            Ideamus.write(' ')
+                            Ideamus.write(Musicidea)
+                            Ideamus.close()
+                            filename = 'Musicidea_%s.wav' % now
+                            duration = 5  # seconds
+                            fs = 44100
+
+                            speak('audio recording start in 3 2 1 ')
+                                
+                            recording = sd.rec(int(duration * fs), samplerate=fs, channels=2 )
+                            sd.wait()
+                            scipy.io.wavfile.write(filename, fs, recording)
+                                
+                            duration = 5  # seconds
+                            fs = 44100
+                            plt.switch_backend('agg')
+                            y, sr = librosa.load(filename)
+                            D = librosa.stft(y)
+                            librosa.display.specshow(librosa.amplitude_to_db(np.abs(D), ref=np.max), sr=sr, x_axis='time', y_axis='log')
+                            plt.colorbar(format='%+2.0f dB')
+                            plt.title('Log-frequency power spectrogram')
+                            plt.savefig('Musicidea_%s.png' % now)
+                            plt.show('Musicidea_%s.png' % now)
+                            plt.show()
+                            ipyd.Audio(y, rate=sr)
+                            librosa.display.specshow(D)
+        # Plot the audio waveform
+                    
+
+# Overlay the tempo on top of the waveform
+                            times = librosa
+                            speak('you said')
+                            speak( Musicidea ) 
+             
+             
+             
+             
+             
+             
+             
+               
+                
+                
+          
+
+
+            # Wikipedia
+            if query[0] == 'wikipedia':
+                query_text = ' '.join(query[1:])
+                
+                speak('Querying the universal databank')
+                result = search_wikipedia(query_text)
+
+                # Save the result to a text file
+                filename = 'wikipedia_result.txt'
+                with open(filename, 'w', encoding='utf-8') as file:
+                    file.write(result)
+
+                # Speak the result
+                speak(result)
+
+        
+            
+            if query[0] == 'company' :
+                
+                finnhub_client = finnhub.Client(api_key="")
+                
+                comp = parseCommand().upper()
+                speak("give me a date pariod to check for you")
+                dat = datetime
+                speak('in format of dates')
+                frm = datetime.strptime(get_input(), "%Y-%m-%d")
+                
+                print(finnhub_client.company_news('{comp}',_from="{frm}", to="{dat}")) 
+               
+            
+            if query [0] in 'cryptocurrencies' 'crypto' 'market':
+                        url = "https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest"
+                        headers = {
+                                "Accepts": "application/json",
+                                "X-CMC_Pro_API_Key": ""
+                              }
+
+                        respon = requests.get(url, headers=headers)
+                        print(respon)
+                        data3 = respon.json()
+                        price = json(url)
+                        btc_price = data3
+
+                        print(f"The current price of Bitcoin is ${price:.2f}.")                    
+                                                              
+            
+            
+            if query[0] == 'stocks' :
+                    query = ''.join(query[1:]) ,                     
+                    
+                    speak('whichs stock i should check')
+                        
+                    query = input()
+                    api_key = ''
+                    endpoint = f'https://financialmodelingprep.com/api/v3/quote/{query}?apikey={api_key}'
+                    headers = {'06bb0f8f8cfe93015116144b8ee0c857': api_key}
+                    
+                    response = requests.get(endpoint)
+                    
+                    html = response.text
+                    
+                    soup = BeautifulSoup(html, 'html.parser')
+                    element = soup.find('price')
+                    data = response.json()
+                    
+                    
+                    prices = data[0]['price']          
+                    
+                    
+                    
+                    
+                    print(data)
+                    price = soup.find('div', class_='price')  
+                    save_data(price, "json", data, "txt") 
+                    
+                    speak(prices)
+                    speak('do you like more infos or a fundamental analyses on?' )
+                    Answer = input()
+                    if Answer == 'yes':
+                       endpoint =f'https://financialmodelingprep.com/api/v3/rating/{query}?apikey=06bb0f8f8cfe93015116144b8ee0c857'
+                       headers = {'': api_key}
+                       response = requests.get(endpoint)
+                       soup = BeautifulSoup(html, 'html.parser')
+                       heater =  response.json()
+                       score = heater[0]['ratingScore']
+                       score2 = heater[0]['ratingDetailsDERecommendation']
+                       print(heater)
+                       speak(score)
+                       speak(score2)
+                       save_data(score ,"json" , heater ,"txt")
+                       
+                       speak('fundamental analyses provided by A.I and fmp DATA BANK ')
+                    
+                       speak('i can also include a profitabily given by the stock market analyse and position, let me know ')
+            
+                       wide = input()
+                    
+                       if wide == 'info': 
+                       
+                    
+                            stock = '{query}'
+
+                            api_key = ''
+                            url = f'https://financialmodelingprep.com/api/v4/stock_peers?symbol={stock}&apikey=06bb0f8f8cfe93015116144b8ee0c857'
+
+                        #1 GET LIST OF PEERS
+                            peers = requests.get(url).json()
+                            peers = peers[0]['peersList']
+
+                            profitability_ratios = {}
+                        #2 Retrieve Profitability Ratios for each of the peers
+                            for stock in peers:
+                        #3 Add to Python Dictionary
+                                profitability_ratios[stock] = {}
+                                fr = f'https://financialmodelingprep.com/api/v3/ratios-ttm/{stock}?apikey={api_key}'
+                                financial_ratios_ttm = requests.get(fr).json()
+                                profitability_ratios[stock]['Return on Assets'] = financial_ratios_ttm[0]['returnOnAssetsTTM']
+                                profitability_ratios[stock]['Return on Equity'] = financial_ratios_ttm[0]['returnOnEquityTTM']
+                                profitability_ratios[stock]['Gross Profit Margin'] = financial_ratios_ttm[0]['grossProfitMarginTTM']
+                                profitability_ratios[stock]['Opearting Profit Margin'] = financial_ratios_ttm[0]['operatingProfitMarginTTM']
+                                profitability_ratios[stock]['Net Profit Margin'] = financial_ratios_ttm[0]['netProfitMarginTTM']
+
+    #4 Convert into Pandas DataFrame
+                                profitability_ratios = pd.DataFrame(profitability_ratios)
+                                profitability_ratios    
+                        
+                            if element is not None:
+                                stock = element.get_text().strip()
+                                speak(prices)# <-- Use the element_id argument instead of the query variable
+                        
+                            # Use the text-to-speech engine to read the stock data back to the user
+            if query[0] == 'noaa' :
+            # API endpoint URL
+                    url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/data"
+
+                    # Your API token, obtained from the NOAA website
+                    token = ""
+                    # Get the location ID for the specified city
+                    city = input()
+                    location_id_url = f"https://www.ncdc.noaa.gov/cdo-web/api/v2/locations?locationcategoryid=CITY&q={city}"
+                    location_id_response = requests.get(location_id_url, headers={"token": token})
+                    location_id_data = location_id_response.json()
+                    
+
+                    # Check if any results are returned
+                    if "results" in location_id_data and location_id_data["results"]:
+                        location_id = location_id_data["results"][0]["id"]
+                        print(location_id)
+                        # Query parameters for the API request
+                        params = {
+                            "datasetid": "GHCND",  # GHCND = Global Historical Climatology Network Daily
+                            "locationid": location_id,
+                            "startdate": "2021-01-01",
+                            "enddate": "2021-01-31",
+                            "units": "metric",
+                            "limit": 1000  # Maximum number of results to return
+                        }
+
+                        # Add your token to the headers
+                        headers = {"token": token}
+
+                        # Send the request and retrieve the JSON response
+                        response = requests.get(url, headers=headers, params=params)
+                        data = response.json()
+
+                        # Print the data
+                        print(data)
+
+                        # Save the data
+                        save_data(data, "json", response, "text")
+                    else:
+                        print(f"No location ID found for the city: {city}")
+                            
+            if query[0] == 'earthquake' :
+                    # Set the URL for the API request
+                    url = 'https://earthquake.usgs.gov/fdsnws/event/1/query'
+
+                    # Set the parameters for the API request
+                    params = {
+                    'format': 'geojson',
+                    'starttime': '2022-01-01',
+                    'endtime': '2022-01-31',
+                    'minmagnitude': 6
+                    }
+                    
+                 # Send the API request and get the response
+                    response = requests.get(url, params=params)
+
+                    # Load the JSON content of the response
+                    content = response.json()
+
+                    # Print the response content (JSON format)
+                    print(content)
+
+                    # Save the JSON response to a file if needed
+                    with open('earthquake_data.json', 'w') as json_file:
+                        json.dump(content, json_file)
+
+                    # Extract relevant information from the GeoJSON response
+                    features = content['features']
+                    magnitudes = [feature['properties']['mag'] for feature in features]
+                    latitudes = [feature['geometry']['coordinates'][1] for feature in features]
+                    longitudes = [feature['geometry']['coordinates'][0] for feature in features]
+                    places = [feature['properties']['place'] for feature in features]
+                    statuses = [feature['properties']['status'] for feature in features]
+                    # Create a DataFrame for visualization
+                    df = pd.DataFrame({'Magnitude': magnitudes, 'Latitude': latitudes, 'Longitude': longitudes, 'Place': places, 'Status': statuses})
+
+                    # Sort DataFrame by magnitude in descending order
+                    df = df.sort_values(by='Magnitude', ascending=False)
+
+                    # Set up the figure and axis
+                    fig, ax = plt.subplots(figsize=(12, 8))
+
+                    # Scatter plot of earthquake data with annotations
+                    scatter = ax.scatter(df['Longitude'], df['Latitude'], c=df['Magnitude'], cmap='viridis', alpha=0.7, edgecolors='k', linewidths=0.5)
+                    
+                    # Add colorbar
+                    cbar = plt.colorbar(scatter, ax=ax, label='Magnitude')
+                    
+                    # Add location annotations with place and status
+                    for i, row in df.iterrows():
+                        annotation = f'Magnitude {row["Magnitude"]}\nPlace: {row["Place"]}\nStatus: {row["Status"]}'
+                        ax.text(row['Longitude'], row['Latitude'], annotation, fontsize=8, color='black', ha='right', va='bottom')
+
+                    # Set labels and title
+                    ax.set_title('Earthquakes Visualization (Sorted by Magnitude)')
+                    ax.set_xlabel('Longitude')
+                    ax.set_ylabel('Latitude')
+
+                    # Customize the grid
+                    ax.grid(True, linestyle='--', alpha=0.5)
+
+                    # Tight layout
+                    plt.tight_layout()
+
+                    plt.show() 
+         
+            if query[0] == 'geonames' :
+                # API endpoint URL
+                url = "http://api.geonames.org/searchJSON"
+
+                # Your username, obtained from the Geonames website
+                username = "Dantallion420"
+
+                # Query parameters for the API request
+                params = {
+                    "q": "Paris",  # Name of the place to search for
+                    "maxRows": 10,  # Maximum number of results to return
+                    "username": username
+                }
+
+                # Send the request and retrieve the JSON response
+                response = requests.get(url, params=params)
+                data = response.json()
+                print(data)
+                # Print the data
+                for place in data["geonames"]:
+                    print(place["name"], place["countryName"], place["adminName1"])
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+            
+            if query[0] == 'eonet' :
+                
+                        speak('The Earth Observatory Natural Event Tracker (EONET)')
+                        
+                        
+                        
+                        endpoint=(f'https://eonet.gsfc.nasa.gov/api/v2.1/events?days=30')
+                        response = requests.get(f'https://eonet.gsfc.nasa.gov/api/v2.1/events?days=30')
+                        
+                        earth_data = response.text
+                        earthdd = json.loads(response.text)
+                        events = earthdd['events']
+
+        # Initialize an empty list to hold the summary
+                        summary = []
+
+        # Iterate through the events
+                        for event in events:
+                        # Extract the event title and add it to the summary
+                            title = event['title']
+                            summary.append(title)
+
+        # Convert the summary list to a string
+                            summary_string = " , ".join(summary)
+                        
+                            print(summary_string)
+                    
+            
+                            save_data(query, "json", events, "json")
+                
+                    
+             
+             
+             
+                    
+            if query[0] == "summary"   :
+                speak("wait till i read everything from today" )
+                
+                
+                
+                
+                summary = []
+
+# Iterate through the events
+                for event in events:
+                # Extract the event title and add it to the summary
+                    title = event['title']
+                    summary.append(title)
+
+# Convert the summary list to a string
+                    summary_string = " , ".join(summary)
+                
+                    print(summary_string)
+                
+                     
+        
+         
+             #MONITORE EARTH AND SPACE CODE    
+
+                
+            # Request was not successful
+                   
+            if query[0] == 'ice' :
+                speak("done")
+                url ="https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&sites=15803000&parameterCd=00060&startDT=2022-01-01&endDT=2022-01-31"
+                response = urllib.request.urlopen(url)
+                result = json.loads(response.read())
+                print(result)
+                               
+                               
+            if query[0] == 'country' :
+                speak('which country do ou want to check up , say in 2 letters format language  ') 
+                print('example BR / FR ....')
+                count = parseCommand()
+                print(count)
+                url = f"http://api.worldbank.org/v2/country/{count}?format=json"
+                print(url)               
+                response = urllib.request.urlopen(url)
+                result = json.loads(response.read()) 
+                print(result)
+                countrydata = result[1][0]["incomeLevel"]  
+                countrydata2 = result[1]['value']
+                speak(countrydata + countrydata2)  
+                
+                
+            if query[0] == 'earth' :
+            
+            
+                response = requests.get(f"https://services.swpc.noaa.gov/text/weekly.txt") 
+                sol = response.text
+                resul = json.loads(sol.read())
+                print(sol)
+                
+                speak('do you need me to speak for you ? ')
+                
+                
+                geo = parseCommand()
+                if geo == 'geomagnetic' :
+                  responsez = requests.get(f"https://services.swpc.noaa.gov/text/3-day-geomag-forecast.txt")
+                  geomag =  responsez.text
+                  print(geomag)
+             
+                       
+
+                 
+            if query [0] in 'nasa' 'asteroid''asteroids' 'Sattellite' 'mars'  :
+                print('what you need to know   -Asteroids Neo -Insight -Satellite Situation Center -TLE API -Vesta -DONKI')
+                
+               
+                
+            uni1 = parseCommand()
+            uni_tokens = []
+
+            if uni1 is not None:
+                uni_tokens = uni1.lower().split()
+
+            if uni_tokens and uni_tokens[0] == "compute":
+                uni_tokens = uni_tokens[1:]
+
+            uni = uni_tokens[0] if uni_tokens else None
+            print(uni)
+                        
+            if uni in 'asteroids' 'asteroid' :
+               
+                    api_key = ""
+                    endpoint = "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key"
+            
+                    response = requests.get(f"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=")
+                    data = response.json()
+            
+                    # Make a GET request to the NASA API to retrieve asteroid data
+                    response = requests.get("https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=")
+            
+                
+                    # Parse the JSON data
+                    data = json.loads(response.text)
+                    print(data)
+                    data2 = response.json()['near_earth_objects']
+                    # Create an empty graph
+                    G = nx.Graph()
+                 
+                  # Add nodes to the graph
+                    for asteroid in data2:
+                        name = asteroid['name']
+                        size = asteroid['estimated_diameter']['kilometers']['estimated_diameter_max']
+                        G.add_node(name, size=size)
+
+                    # Add edges to the graph
+                    for asteroid in data2:
+                        name = asteroid['name']
+                        for close_approach in asteroid['close_approach_data']:
+                            close_approach_date = close_approach['close_approach_date']
+
+                            for other_asteroid in data:
+                                other_name = other_asteroid['name']
+
+                                if name != other_name:
+                                    for other_close_approach in other_asteroid.get('close_approach_data', []):
+                                        other_close_approach_date = other_close_approach.get('close_approach_date')
+
+                                        if close_approach_date == other_close_approach_date:
+                                            G.add_edge(name, other_name)
+
+                        # Draw the graph
+                    pos = nx.spring_layout(G, seed=123)
+                    node_sizes = [G.nodes[node]['size'] * 100 for node in G.nodes()]
+                    nx.draw_networkx_nodes(G, pos, node_color='lightblue', node_size=node_sizes)
+                    nx.draw_networkx_labels(G, pos, font_size=8)
+                    nx.draw_networkx_edges(G, pos, edge_color='blue', arrows=False)
+                    plt.axis('off')
+                    plt.show()
+                
+# Iterate through the data and extract the information you need
+                    for asteroid in data["near_earth_objects"]:
+                        print("Name:", asteroid["name"])
+                        print("Distance to Earth:", asteroid["close_approach_data"][0]["miss_distance"]["miles"])
+                        print("---")
+            
+                    data["near_earth_objects"].sort(key=lambda asteroid: asteroid["close_approach_data"][0]["miss_distance"]["miles"])
+
+                    # Print the closest asteroid
+                    asteroid = data["near_earth_objects"][0]
+                    print("Closest asteroid:", asteroid["name"])
+                    print("Distance to Earth:", asteroid["close_approach_data"][0]["miss_distance"]["miles"])
+            
+                    uni
+            
+            if uni == 'donkey':
+    # Define the endpoint for the API call
+                        api_key = ""
+                        endpoint = "https://api.nasa.gov/DONKI/notifications?startDate=2014-05-01&endDate=2014-05-08&type=all&api_key="
+
+    # Make a request to the DONKI API
+                        response = requests.get(endpoint)
+                        speak("worked")
+    # Extract the data from the response
+                        donki_data = response.json()
+                        donkey = donki_data[0]['messageBody']
+
+    # Analyze the data
+                        for data in donki_data:
+                            print(donki_data)
+                            speak(donkey)
+            
+           
+            
+            if uni == 'sattelites' :
+                print("Starlink ,ISS ,CENTAURI-2 ,CENTAURI-3 (TYVAK-0210),PROXIMA I ,CENTAURI-1 ,PROXIMA II,NOAA 19,NOAA 18,NOAA 15,ROBUSTA 1B,ZHUHAI-1 02 (CAS-4B) ,KKS-1 (KISEKI) ,ITASAT 1 ,NAYIF-1 (EO-88) ,NORSAT 2 ,AISSAT 1 ,WARP-01 ,AISSAT 2,NORSAT 1,NORSAT 3")
+                endpoint = "http://data.ivanstanojevic.me"
+                endpoint2 = "https://celestrak.org/NORAD/elements/supplemental/starlink.match.txt"
+                # Define the satellite you want to retrieve TLE data for
+                satellite_name = 'CENTAURI-2'
+
+    # Make a request to the TLE API
+                response = requests.get(f'https://tle.ivanstanojevic.me/api/tle/43809')
+                response2 = requests.get(f'https://celestrak.org/NORAD/elements/supplemental/starlink.match.txt')
+        # Extract the TLE data from the response
+                tle_data = response.text
+                Starli = response2.text
+                print(Starli)
+                
+    # Print the TLE data
+                print(tle_data)
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+                speak('ISS localization?')    
+           
+           
+           
+           
+           
+       
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+            
+            
+            if query[0] == 'learn':
+                    print("recording and learmig with you") 
+                    newNote = parseCommand()
+                    now = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+                    
+                    # Store the note with a timestamp
+                    speich = f"{now}.txt"
+                    with open(speich, 'w') as file:
+                        file.write(newNote)
+                    
+                    # Tokenize the note
+                    tokenizer = PunktSentenceTokenizer()
+                    tokens = word_tokenize(newNote)
+                    result = nltk.pos_tag(tokens)
+                    
+                    # Save tokens and POS tags
+                    vocab_file = "vocabulary.txt"
+                    with open(vocab_file, 'a') as vocab:
+                        for word, pos in result:
+                            vocab.write(f"{word}\t{pos}\n")
+                    
+                    print(f"New note learned and stored as {speich}")
+                    print(f"Vocabulary updated in {vocab_file}")
+                    
+                    
+                    
+            
+            if query[0] == 'analyse':
+                    # Open a file dialog to select a file
+                    root = tk.Tk()
+                    root.withdraw()  # Hide the root window
+                    file_path = filedialog.askopenfilename()
+
+                    if file_path:
+                        if file_path.endswith('.docx'):
+                            text = read_docx(file_path)
+                        elif file_path.endswith('.csv'):
+                            text = upload_file_csv(file_path)
+                        else:
+                            print("Unsupported file format. Please upload a DOCX or CSV file.")
+                            text = None
+                    else:
+                        print("No file selected.")
+                        text = None
+
+                    if text:
+                        # Tokenize the text
+                        sentences = sent_tokenize(text)
+                        words = word_tokenize(text)
+                        
+                        # Remove stopwords
+                        stop_words = set(stopwords.words('english'))
+                        filtered_words = [word for word in words if word.isalnum() and word not in stop_words]
+                        
+                        # Frequency distribution of words
+                        fdist = FreqDist(filtered_words)
+                        
+                        # Get the most common words
+                        common_words = fdist.most_common(10)
+                        
+                        # Summarize the text
+                        word_frequencies = {}
+                        for word in filtered_words:
+                            if word in fdist:
+                                word_frequencies[word] = fdist[word]
+
+                        maximum_frequency = max(word_frequencies.values())
+
+                        for word in word_frequencies.keys():
+                            word_frequencies[word] = (word_frequencies[word] / maximum_frequency)
+
+                        sentence_scores = {}
+                        for sent in sentences:
+                            for word in word_tokenize(sent.lower()):
+                                if word in word_frequencies:
+                                    if sent not in sentence_scores:
+                                        sentence_scores[sent] = word_frequencies[word]
+                                    else:
+                                        sentence_scores[sent] += word_frequencies[word]
+
+                        summary_sentences = nlargest(5, sentence_scores, key=sentence_scores.get)
+                        summary = ' '.join(summary_sentences)
+                        
+                        # Basic interpretation
+                        analysis = {
+                            'common_words': common_words,
+                            'sentences': sentences,
+                        }
+                        
+                        print("Summary:", summary)
+                        print("Analysis:", analysis)
+                    else:
+                        print("Invalid query or missing text for analysis.")
+                
+                           
+                    
+             
+
+               
+            
+                
+         
+                
+                
+                
+          
+
+
+
+
+
+# Analyze sentiment
+          
+        
+            
+            
+            
+        if query == 'stop':
+                speak('Goodbye')
+                engine.stop
+        break
+            
+  
+  
+   #predictions 
+
+if __name__ == '__main__':
+    # Get user input (command) to initiate the main loop
+    command = input('voice command or text command ? ')
+
+
+    main(command)
+
