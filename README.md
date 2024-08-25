@@ -34,6 +34,6 @@ The assistant can be run on a local server and accessed via a terminal or comman
 Further Reading
 For a detailed explanation of the project, including the development process and challenges, check out the Medium post:
 
-Building an AI Assistant with Python: Integrating AI Modules and APIs
+[Building an AI Assistant with Python: Integrating AI Modules and APIs](https://medium.com/@leoFacci/open-source-case-study-python-assistant-a-i-machine-learning-5d61e9ba588b)
 
 Happy coding!
