@@ -16,7 +16,7 @@ Installation
 Clone the Repository:
 
 
-git clone https://github.com/your-username/Ai-Assistant-Open-Source.git
+git clone 
 cd Ai-Assistant-Open-Source
 Install Dependencies:
 
